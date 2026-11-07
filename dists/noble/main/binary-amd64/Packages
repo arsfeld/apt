@@ -1,0 +1,74 @@
+Package: io.elementary.terminal-ghostty
+Architecture: amd64
+Version: 8.1.0+ghostty.git20261107154426.854ef145
+Priority: optional
+Section: x11
+Maintainer: Alexandre Rosenfeld <alex@rosenfeld.one>
+Installed-Size: 1147
+Provides: io.elementary.terminal, x-terminal-emulator
+Depends: dconf-gsettings-backend | gsettings-backend, libadwaita-1-0 (>= 1.5.0), libc6 (>= 2.34), libgee-0.8-2 (>= 0.8.3), libghostty-gtk-1-0 (>= 0.1.0+git20261107160608.0256e805), libglib2.0-0t64 (>= 2.72.0), libgranite7 (>= 7.7.0), libgtk-4-1 (>= 4.12.0), libpango-1.0-0 (>= 1.14.0)
+Conflicts: io.elementary.terminal, pantheon-terminal
+Replaces: io.elementary.terminal, pantheon-terminal
+Filename: pool/main/elementary-terminal/io.elementary.terminal-ghostty_8.1.0+ghostty.git20261107154426.854ef145_amd64.deb
+Size: 159640
+MD5sum: 7553eb6bd9115c3d74797a93e6a40219
+SHA1: aeae5f00fdb745574e5ab87c4d2ac16e533302f0
+SHA256: 39b7b2fca236331f1e30244c2b4fd19d59d0b73aa1d0b1633618928fb70a1451
+SHA512: 1d2d7c53b8ddaebd6ff85b48b52c47b0dd67a8dddfc3310f7e3bba16ed0e4cc0349c1ccd4174f156e8021ac81e71aaa6cc335342270d1951d2d8dd6cc1a248d8
+Homepage: https://github.com/arsfeld/elementary-terminal
+Description: elementary Terminal on Ghostty's terminal engine
+ elementary's Terminal with VTE replaced by libghostty-gtk, a GTK4 terminal
+ widget on libghostty-vt, Ghostty's terminal engine. The app is elementary's;
+ the engine underneath is Ghostty's.
+ .
+ It replaces io.elementary.terminal, and satisfies what depends on it.
+
+Package: libghostty-gtk-1-0
+Architecture: amd64
+Version: 0.1.0+git20261107160608.0256e805
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: libghostty-gtk
+Maintainer: Alexandre Rosenfeld <alex@rosenfeld.one>
+Installed-Size: 2761
+Depends: dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.36), libglib2.0-0t64 (>= 2.64.0), libgtk-4-1 (>= 4.7.2), libpango-1.0-0 (>= 1.45.5)
+Filename: pool/main/libghostty-gtk/libghostty-gtk-1-0_0.1.0+git20261107160608.0256e805_amd64.deb
+Size: 965992
+MD5sum: 614b5b627fa969d9f025f40544d8eaa4
+SHA1: 442417dd05c743fbaf5c7f3819db870096b5a6c8
+SHA256: c151fbbdb063c29b4d085e4049f45e96fe6cd90a1a8f0df18ca3f9ab4040afd8
+SHA512: 03f21f6eb84eeaa1d1632b34880c9cf26e4353cadd54a72ab116c4820cade0a51b08dd63875d374c208e49c07618dc64f6f428876596ce1c4ef836fc8f7caa22
+Homepage: https://github.com/arsfeld/libghostty-gtk
+Description: GTK4 terminal widget on Ghostty's terminal engine
+ libghostty-gtk is a GTK4 terminal widget on libghostty-vt, Ghostty's
+ terminal engine, with the part of VTE's Vte.Terminal API that elementary
+ Terminal uses. libghostty-vt is linked in statically.
+ .
+ This package contains the shared library and its GSettings schema.
+
+Package: libghostty-gtk-dev
+Architecture: amd64
+Version: 0.1.0+git20261107160608.0256e805
+Multi-Arch: same
+Priority: optional
+Section: libdevel
+Source: libghostty-gtk
+Maintainer: Alexandre Rosenfeld <alex@rosenfeld.one>
+Installed-Size: 46
+Depends: libghostty-gtk-1-0 (= 0.1.0+git20261107160608.0256e805), libglib2.0-dev, libgtk-4-dev, libpango1.0-dev
+Filename: pool/main/libghostty-gtk/libghostty-gtk-dev_0.1.0+git20261107160608.0256e805_amd64.deb
+Size: 6874
+MD5sum: f191fce8b46f698c04bdae2da95d6629
+SHA1: 69dcc05d38a287ff337718c1529cef9782f667da
+SHA256: 8e69bc116d566581589f037d65d9ec9f170b2dd601b15ebbb9b97439a8b7925d
+SHA512: 0bf6d4355611e1252772b06041e112720e9ac635bb833a5987d65c03c68e365f2419325b0c2312914c3af483b6e39c3832d2bd6965321d0066095b3cfd551690
+Homepage: https://github.com/arsfeld/libghostty-gtk
+Description: GTK4 terminal widget on Ghostty's terminal engine - development files
+ libghostty-gtk is a GTK4 terminal widget on libghostty-vt, Ghostty's
+ terminal engine, with the part of VTE's Vte.Terminal API that elementary
+ Terminal uses.
+ .
+ This package contains the header, the Vala API and the pkg-config file
+ (ghostty-gtk-1).
+

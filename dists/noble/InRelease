@@ -1,0 +1,43 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Architectures: amd64
+Codename: noble
+Components: main
+Date: Sat, 07 Nov 2026 16:14:36 +0000
+Description: elementary Terminal on libghostty-gtk, for elementary OS 8
+Label: arsfeld
+Origin: arsfeld
+Suite: noble
+MD5Sum:
+ f3418ad2cafd4aadf12b3e11f79e731a             3805 main/binary-amd64/Packages
+ eae967f6236d746c03f387209304e278             1442 main/binary-amd64/Packages.gz
+ 1306705e7aad3c8bd783155cbb6fb333             1504 main/binary-amd64/Packages.xz
+SHA1:
+ 7b9c782f7ce7a7e8bed6a4df500f05902ece4cd9             3805 main/binary-amd64/Packages
+ de3f8991889c2af330f917af2cb92b3ae66aed63             1442 main/binary-amd64/Packages.gz
+ 54920201fb559dc7414a1e14e11169ab9b1e04d7             1504 main/binary-amd64/Packages.xz
+SHA256:
+ 14aad17d63ef68e7ef1c3d03fc39e9e0b58f5a0c3d06009b538a44efc15740b2             3805 main/binary-amd64/Packages
+ 07af6845a04f97f2b8824be7308df997364a8204266dce91529d84d3f185edfb             1442 main/binary-amd64/Packages.gz
+ c47d1b453ee54e3e24cee9e08bb973e45b8a4c7e11eb315455b7003dd798d290             1504 main/binary-amd64/Packages.xz
+SHA512:
+ 7a9b6e7c0a9164a66ac5b29cf096eec217033711ec3156c7e3b47c97d71a0c24651d2c4590fbd939926206f2df321edda7e6791baf4f8c41e0f141982f659c31             3805 main/binary-amd64/Packages
+ 6077c9798a5fe565fb18aa65f3d23a5cdba69afc8a0c856a41e84fa2e203e2c53d98017fab04336476c785fce689c4f1f85bc9cf377747d2a40668c2ed07ae71             1442 main/binary-amd64/Packages.gz
+ a1b3ddfba1c966b3130ca8a4baa4b18d3e89792329d1163eefdb1cb0dac8d41a46c1cb105db01bbe209e94d7aa1439d031a1631e82f5fd30555c88cc1410cb6d             1504 main/binary-amd64/Packages.xz
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEETRAcQgWV3GB59OV3DVw0eT9PBqcFAmrvTmwACgkQDVw0eT9P
+BqfvExAAvDZnkgPuFCVUpai2w2+eNs+4SyEH03WGqW47C8irUTVITY0xHlcG64E5
+R3MkzgtWG2F7Q2a/yqaKGpNWiN9ftWL3pweY2UAhLGQiqTJ/Tu90Aydt5yCjx8yo
+32Qymi9duyscQolgacjwLKAQarUuDJFWqgWpjk+UzjTYNR9sryATyUagEQFQt/au
+EaazEZ/or5AUyeYUdEowAo/kyScMFVpQnQcZ5F8Fi7yGEFOvpVKsol1hhYn4BJb0
+ESRcntps9lFSd9gUiHklJQdEdwuhwSyLxF/D860qbFIbcqI93wg8qh2XkAjgupYt
+hg8xL62pvlMEwQDx247SIGxwcTXrxEd6AD/2bnxaYe+cHHKZVYFgZ281MCiw0h23
+aVTTJEIpHQiegHS5P4SmmuvjJFeoSwlrrfDbnmAnstolBTXzFwiCKNV7yXy1qdW/
+aJwWpGR5HOdRWBqQ80/HtUEIEVSSyU5zvcgn+3J+iRXKCqSUbkvoc/ANoV9MzbqD
+G0rQoQx7XnmBz35bAM/m4q9TNsq3xvfsyu7eJ1R8rczxbtRrGeVLvodGRwVnQr6U
+65jcNYb3GlB944oCz28TlUIWc9HsSwqlDya0LdS9JfcYQUb8+mW/LtD3OHz/HnCB
+KELRSwTxHery3kRJZA630y3JK1SfnTEHtEqx6eeAc3gZQGWdeQE=
+=0Y5T
+-----END PGP SIGNATURE-----
