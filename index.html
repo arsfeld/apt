@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>arsfeld apt</title>
+<style>
+  :root { --bg: #fafafa; --fg: #1a1a1a; --muted: #555; --code: #eee; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #161616; --fg: #e8e8e8; --muted: #aaa; --code: #262626; } }
+  body { background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, sans-serif; max-width: 46rem; margin: 2rem auto; padding: 0 16px; }
+  pre, code { background: var(--code); border-radius: 4px; font-size: 14px; }
+  pre { padding: 12px; overflow-x: auto; }
+  code { padding: 1px 4px; }
+  pre code { padding: 0; }
+  .muted { color: var(--muted); }
+</style>
+</head>
+<body>
+<h1>arsfeld apt</h1>
+<p>An apt repository for <strong>elementary OS 8</strong> (amd64) with
+<a href="https://github.com/arsfeld/elementary-terminal">elementary Terminal on libghostty-gtk</a>:
+elementary's Terminal with VTE replaced by
+<a href="https://github.com/arsfeld/libghostty-gtk">libghostty-gtk</a>, a GTK4 widget on
+Ghostty's terminal engine.</p>
+
+<h2>Install</h2>
+<pre><code>sudo curl -fsSLo /usr/share/keyrings/arsfeld.gpg https://arsfeld.github.io/apt/arsfeld.gpg
+echo "deb [signed-by=/usr/share/keyrings/arsfeld.gpg] https://arsfeld.github.io/apt noble main" \
+  | sudo tee /etc/apt/sources.list.d/arsfeld.list
+sudo apt update
+sudo apt install io.elementary.terminal-ghostty</code></pre>
+<p>This replaces elementary's <code>io.elementary.terminal</code>. To go back:</p>
+<pre><code>sudo apt install io.elementary.terminal</code></pre>
+
+<h2>Signing key</h2>
+<p><code>arsfeld apt &lt;alex@rosenfeld.one&gt;</code>, RSA 4096, fingerprint<br>
+<code>4D10 1C42 0595 DC60 79F4 E577 0D5C 3479 3F4F 06A7</code><br>
+(<a href="arsfeld.gpg">binary</a>, <a href="arsfeld.asc">armored</a>).
+<code>signed-by</code> trusts it for this repository only.</p>
+
+<p class="muted">Experimental, and not affiliated with elementary or Ghostty.
+Source: <a href="https://github.com/arsfeld/apt">arsfeld/apt</a>.</p>
+</body>
+</html>
