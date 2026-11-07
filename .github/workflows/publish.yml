@@ -1,0 +1,92 @@
+name: publish
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Regenerate and re-sign even with nothing new
+        type: boolean
+        default: false
+  push:
+    branches: [master]
+
+# One publish at a time: two would race on gh-pages.
+concurrency: publish
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    outputs:
+      inrelease: ${{ steps.publish.outputs.inrelease }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
+        with:
+          ref: gh-pages
+          path: site-out
+      - name: Import the signing key
+        env:
+          APT_SIGNING_KEY: ${{ secrets.APT_SIGNING_KEY }}
+        run: |
+          printf '%s\n' "$APT_SIGNING_KEY" | gpg --batch --import
+          gpg --list-secret-keys --with-colons | grep -q "$(cat FINGERPRINT)"
+      - name: Publish
+        id: publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          # A push to master changes the page or the scripts: re-sign.
+          FORCE: ${{ (github.event_name == 'push' || inputs.force) && '1' || '0' }}
+        run: |
+          cp -r site/. site-out/
+          ./publish.sh site-out
+          cd site-out
+          echo "inrelease=$(sha256sum dists/noble/InRelease | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+          git add -A
+          if git diff --cached --quiet; then echo "nothing to push"; exit 0; fi
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -qm "publish from ${GITHUB_SHA}"
+          git push -q origin gh-pages
+
+  verify:
+    needs: publish
+    runs-on: ubuntu-latest
+    container: ghcr.io/elementary/docker:stable
+    steps:
+      - name: Wait for Pages to serve this InRelease
+        env:
+          WANT: ${{ needs.publish.outputs.inrelease }}
+        run: |
+          apt-get update -qq && apt-get install -y -qq curl ca-certificates >/dev/null
+          for i in $(seq 60); do
+            got=$(curl -fsSL "https://arsfeld.github.io/apt/dists/noble/InRelease?$i" | sha256sum | cut -d' ' -f1) || true
+            [ "$got" = "$WANT" ] && exit 0
+            sleep 10
+          done
+          echo "Pages still serves another InRelease after 10 minutes" >&2
+          exit 1
+      - name: Install from the repo, as the README says
+        run: |
+          export DEBIAN_FRONTEND=noninteractive
+          curl -fsSLo /usr/share/keyrings/arsfeld.gpg https://arsfeld.github.io/apt/arsfeld.gpg
+          echo "deb [signed-by=/usr/share/keyrings/arsfeld.gpg] https://arsfeld.github.io/apt noble main" \
+            > /etc/apt/sources.list.d/arsfeld.list
+          apt-get update --error-on=any
+          apt-get install -y io.elementary.terminal
+          apt-get install -y io.elementary.terminal-ghostty
+      - name: Check the result
+        run: |
+          set -x
+          # Not `! cmd`: set -e ignores a negated command's failure.
+          if dpkg -s io.elementary.terminal 2>/dev/null | grep -q '^Status: install ok installed'; then
+            echo "elementary's Terminal is still installed" >&2; exit 1
+          fi
+          dpkg -s io.elementary.terminal-ghostty | grep -q '^Status: install ok installed'
+          if ldd /usr/bin/io.elementary.terminal | grep 'not found'; then exit 1; fi
+          ldd /usr/bin/io.elementary.terminal | grep -q libghostty-gtk-1.so.0
+          gsettings list-schemas | grep -qx io.github.arsfeld.ghostty-gtk
+          update-alternatives --query x-terminal-emulator | grep -q '^Value: /usr/bin/io.elementary.terminal'
