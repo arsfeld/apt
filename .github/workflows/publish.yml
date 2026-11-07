@@ -29,6 +29,8 @@ jobs:
         with:
           ref: gh-pages
           path: site-out
+      - name: Install apt-ftparchive
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq apt-utils
       - name: Import the signing key
         env:
           APT_SIGNING_KEY: ${{ secrets.APT_SIGNING_KEY }}
