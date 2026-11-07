@@ -1,24 +1,28 @@
 Architectures: amd64
 Codename: noble
 Components: main
-Date: Sat, 07 Nov 2026 16:14:36 +0000
+Date: Sat, 07 Nov 2026 20:15:56 +0000
 Description: elementary Terminal on libghostty-gtk, for elementary OS 8
 Label: arsfeld
 Origin: arsfeld
 Suite: noble
 MD5Sum:
- f3418ad2cafd4aadf12b3e11f79e731a             3805 main/binary-amd64/Packages
- eae967f6236d746c03f387209304e278             1442 main/binary-amd64/Packages.gz
- 1306705e7aad3c8bd783155cbb6fb333             1504 main/binary-amd64/Packages.xz
+ f2936662f429b6b83f6b820a6516db8b             1606 Release
+ 568e4f5639084be42693b5251a60e9c0             7610 main/binary-amd64/Packages
+ 67bca2e446207a4896796f8a0c9248fb             2057 main/binary-amd64/Packages.gz
+ 8c4f8596b322efe9c163e192989a7551             2016 main/binary-amd64/Packages.xz
 SHA1:
- 7b9c782f7ce7a7e8bed6a4df500f05902ece4cd9             3805 main/binary-amd64/Packages
- de3f8991889c2af330f917af2cb92b3ae66aed63             1442 main/binary-amd64/Packages.gz
- 54920201fb559dc7414a1e14e11169ab9b1e04d7             1504 main/binary-amd64/Packages.xz
+ 81df7e90a5005c0b9949e2d6a918c2bde329a9df             1606 Release
+ efc8ebbc83616f2857733d91a197d36088a1fe4a             7610 main/binary-amd64/Packages
+ 21dfbf4db9c324e84b19f6eda28ecea389c7020a             2057 main/binary-amd64/Packages.gz
+ 2cfda2a8d0aa8bbd0fe1892a29c8f9ca826b3c4f             2016 main/binary-amd64/Packages.xz
 SHA256:
- 14aad17d63ef68e7ef1c3d03fc39e9e0b58f5a0c3d06009b538a44efc15740b2             3805 main/binary-amd64/Packages
- 07af6845a04f97f2b8824be7308df997364a8204266dce91529d84d3f185edfb             1442 main/binary-amd64/Packages.gz
- c47d1b453ee54e3e24cee9e08bb973e45b8a4c7e11eb315455b7003dd798d290             1504 main/binary-amd64/Packages.xz
+ a081ece76b904e51fb98a45152b78aee3310a0ad05a338b56c80169853e669b2             1606 Release
+ 3dd207e3645f0cb78d12182c4ae59a35f1de71cb6a7aab035b8159a273d9e393             7610 main/binary-amd64/Packages
+ 36e6295e4891132aae3d26ac235aa4abd89d87085cc87267feb5082726c7a17c             2057 main/binary-amd64/Packages.gz
+ 890f00feaa6e6ab449f2f0773447614dbd3e17cca7eb5a39b9e8cde00ba15343             2016 main/binary-amd64/Packages.xz
 SHA512:
- 7a9b6e7c0a9164a66ac5b29cf096eec217033711ec3156c7e3b47c97d71a0c24651d2c4590fbd939926206f2df321edda7e6791baf4f8c41e0f141982f659c31             3805 main/binary-amd64/Packages
- 6077c9798a5fe565fb18aa65f3d23a5cdba69afc8a0c856a41e84fa2e203e2c53d98017fab04336476c785fce689c4f1f85bc9cf377747d2a40668c2ed07ae71             1442 main/binary-amd64/Packages.gz
- a1b3ddfba1c966b3130ca8a4baa4b18d3e89792329d1163eefdb1cb0dac8d41a46c1cb105db01bbe209e94d7aa1439d031a1631e82f5fd30555c88cc1410cb6d             1504 main/binary-amd64/Packages.xz
+ 2c959f5da7dc497da239ccb3d71f3e32631dec5411de34eb42c227f242fd107908dcc20425f9ffc1678531209eeeb13f9e66b7e4e9c42bc03d75efb80f6eac23             1606 Release
+ 54072e0f1f8247c556e1f8f904b528334a5fe364c63b9f1618111a06a909925423d533484f48638a1c3fcf04d28c6c0fa4c17e7ddffeb2dfdfb7b6a6645df8e1             7610 main/binary-amd64/Packages
+ a2931598dbe968c5e8ef3c560a0f46b568863785fa6db3a788a74c3fbe644943441463e630765f8dc7e72ce5e442e07e232e59da73986d9490d0cb7e28bc7266             2057 main/binary-amd64/Packages.gz
+ 8273a028a0d333ca32e7e1d7d37294625b67712565014ac7024fc99ea53ff96e052cbc7528c23a4c50ebf964b7c4c20f373347be62ac8a3c1491521e6deb58b2             2016 main/binary-amd64/Packages.xz
