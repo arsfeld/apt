@@ -1,3 +1,4 @@
 # Repos whose latest GitHub Release's .debs go into the apt repo.
 arsfeld/libghostty-gtk
 arsfeld/elementary-terminal
+arsfeld/elementary-dock

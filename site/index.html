@@ -21,16 +21,20 @@
 <a href="https://github.com/arsfeld/elementary-terminal">elementary Terminal on libghostty-gtk</a>:
 elementary's Terminal with VTE replaced by
 <a href="https://github.com/arsfeld/libghostty-gtk">libghostty-gtk</a>, a GTK4 widget on
-Ghostty's terminal engine.</p>
+Ghostty's terminal engine; and
+<a href="https://github.com/arsfeld/elementary-dock">elementary's dock with extras</a>:
+folder stacks, zoom under the pointer, and icons that stay sharp.</p>
 
 <h2>Install</h2>
 <pre><code>sudo curl -fsSLo /usr/share/keyrings/arsfeld.gpg https://arsfeld.github.io/apt/arsfeld.gpg
 echo "deb [signed-by=/usr/share/keyrings/arsfeld.gpg] https://arsfeld.github.io/apt noble main" \
   | sudo tee /etc/apt/sources.list.d/arsfeld.list
 sudo apt update
-sudo apt install io.elementary.terminal-ghostty</code></pre>
-<p>This replaces elementary's <code>io.elementary.terminal</code>. To go back:</p>
-<pre><code>sudo apt install io.elementary.terminal</code></pre>
+sudo apt install io.elementary.terminal-ghostty
+sudo apt install io.elementary.dock-extras</code></pre>
+<p>Install either or both. They replace elementary's <code>io.elementary.terminal</code> and
+<code>io.elementary.dock</code>; the dock starts at your next login. To go back:</p>
+<pre><code>sudo apt install io.elementary.terminal io.elementary.dock</code></pre>
 
 <h2>Signing key</h2>
 <p><code>arsfeld apt &lt;alex@rosenfeld.one&gt;</code>, RSA 4096, fingerprint<br>

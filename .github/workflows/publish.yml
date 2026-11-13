@@ -80,6 +80,8 @@ jobs:
           apt-get update --error-on=any
           apt-get install -y io.elementary.terminal
           apt-get install -y io.elementary.terminal-ghostty
+          apt-get install -y io.elementary.dock
+          apt-get install -y io.elementary.dock-extras
       - name: Check the result
         run: |
           set -x
@@ -92,3 +94,11 @@ jobs:
           ldd /usr/bin/io.elementary.terminal | grep -q libghostty-gtk-1.so.0
           gsettings list-schemas | grep -qx io.github.arsfeld.ghostty-gtk
           update-alternatives --query x-terminal-emulator | grep -q '^Value: /usr/bin/io.elementary.terminal'
+          if dpkg -s io.elementary.dock 2>/dev/null | grep -q '^Status: install ok installed'; then
+            echo "elementary's dock is still installed" >&2; exit 1
+          fi
+          dpkg -s io.elementary.dock-extras | grep -q '^Status: install ok installed'
+          if ldd /usr/bin/io.elementary.dock | grep 'not found'; then exit 1; fi
+          for key in stacks zoom-enabled zoom-size; do
+            gsettings list-keys io.elementary.dock | grep -qx "$key"
+          done

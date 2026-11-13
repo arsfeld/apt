@@ -8,6 +8,9 @@ The apt repository at **https://arsfeld.github.io/apt**, for elementary OS 8
 - [arsfeld/elementary-terminal](https://github.com/arsfeld/elementary-terminal)
   (branch `libghostty-gtk`): `io.elementary.terminal-ghostty`, which replaces
   elementary's `io.elementary.terminal`
+- [arsfeld/elementary-dock](https://github.com/arsfeld/elementary-dock)
+  (branch `extras`): `io.elementary.dock-extras`, elementary's dock with
+  folder stacks and zoom, which replaces `io.elementary.dock`
 
 ## Install
 
@@ -16,7 +19,8 @@ sudo curl -fsSLo /usr/share/keyrings/arsfeld.gpg https://arsfeld.github.io/apt/a
 echo "deb [signed-by=/usr/share/keyrings/arsfeld.gpg] https://arsfeld.github.io/apt noble main" \
   | sudo tee /etc/apt/sources.list.d/arsfeld.list
 sudo apt update
-sudo apt install io.elementary.terminal-ghostty
+sudo apt install io.elementary.terminal-ghostty   # and/or
+sudo apt install io.elementary.dock-extras         # then log out and back in
 ```
 
 Signing key: `arsfeld apt <alex@rosenfeld.one>`, RSA 4096,
@@ -24,7 +28,7 @@ fingerprint `4D10 1C42 0595 DC60 79F4 E577 0D5C 3479 3F4F 06A7`.
 
 ## How it works
 
-The two source repos build their `.deb`s in elementary's OS 8 container and
+The source repos build their `.deb`s in elementary's OS 8 container and
 publish each build as a GitHub Release. `.github/workflows/publish.yml` runs
 hourly (and on demand: `gh workflow run publish -R arsfeld/apt`):
 
@@ -36,7 +40,8 @@ hourly (and on demand: `gh workflow run publish -R arsfeld/apt`):
 3. `verify` waits for Pages to serve the new `InRelease`, then installs from
    the repo in a clean elementary OS 8 container exactly as above, with
    `apt-get update --error-on=any`, and checks that the Terminal replaced
-   elementary's and finds its library.
+   elementary's and finds its library, and that the dock replaced
+   elementary's and carries its extra settings.
 
 Polling, rather than a trigger from each source repo, keeps every credential
 in this repo. Sources are listed in `sources`; the page and key are in
