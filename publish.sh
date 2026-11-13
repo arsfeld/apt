@@ -58,7 +58,7 @@ gzip -9nkf dists/noble/main/binary-amd64/Packages
 xz -9kf dists/noble/main/binary-amd64/Packages
 apt-ftparchive \
   -o APT::FTPArchive::Release::Origin=arsfeld \
-  -o APT::FTPArchive::Release::Label=pantheon-apt \
+  -o APT::FTPArchive::Release::Label=pantheon-extras \
   -o APT::FTPArchive::Release::Suite=noble \
   -o APT::FTPArchive::Release::Codename=noble \
   -o APT::FTPArchive::Release::Architectures=amd64 \

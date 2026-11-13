@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>pantheon-apt</title>
+<title>pantheon-extras</title>
 <meta name="description" content="A signed apt repository for elementary OS 8: elementary's dock with folder stacks and zoom, PaperWM-style scrolling tiling, and elementary Terminal on Ghostty's terminal engine.">
 <meta name="color-scheme" content="light dark">
 <style>
@@ -189,14 +189,14 @@
         <rect x="8" y="9" width="4" height="5" rx="1" fill="#fff" opacity=".85"/>
         <rect x="16" y="9" width="4" height="5" rx="1" fill="#fff" opacity=".85"/>
       </svg>
-      pantheon-apt
+      pantheon-extras
     </a>
     <nav>
       <a href="#dock">Dock</a>
       <a href="#tiling">Tiling</a>
       <a href="#terminal">Terminal</a>
       <a href="#install">Install</a>
-      <a class="optional" href="https://github.com/arsfeld/pantheon-apt">Source</a>
+      <a class="optional" href="https://github.com/arsfeld/pantheon-extras">Source</a>
     </nav>
   </div>
 </header>
@@ -204,12 +204,12 @@
 <main>
   <section class="hero" style="padding-bottom:0">
     <div class="wrap">
-      <h1>pantheon-apt</h1>
-      <p class="lead">A signed apt repository for elementary OS 8: elementary's dock with folder stacks and zoom,
-        PaperWM-style scrolling tiling, and elementary Terminal on libghostty-vt.</p>
+      <h1>pantheon-extras</h1>
+      <p class="lead">An apt repository for elementary OS 8 with a patched dock, a scrolling-tiling plugin for
+        Gala, and Terminal on libghostty.</p>
       <div class="actions">
         <a class="button suggested" href="#install">Install</a>
-        <a class="button flat" href="https://github.com/arsfeld/pantheon-apt">Source</a>
+        <a class="button flat" href="https://github.com/arsfeld/pantheon-extras">Source</a>
       </div>
       <div class="screen">
         <img src="screenshots/desktop.webp" width="1920" height="1080"
@@ -223,21 +223,15 @@
       <div class="section-head">
         <div class="package-head"><span class="pkg">io.elementary.dock-extras</span><span class="version" data-pkg="io.elementary.dock-extras"></span></div>
         <h2>Dock</h2>
-        <p>elementary's Dock, with folder stacks, zoom, and icons that stay sharp at any size.
-          It replaces <code>io.elementary.dock</code>.</p>
+        <p>elementary's dock with folder stacks and zoom. Replaces <code>io.elementary.dock</code>.</p>
       </div>
 
       <div class="features">
         <div class="feature wide">
           <div class="text">
             <h3>Folder stacks</h3>
-            <p>Put a folder after the launchers and it opens as a fan.
-              Downloads shows newest first, nearest the dock, and partial downloads show their progress.</p>
-            <ul class="ticks">
-              <li>Drag a folder from Files onto the dock to add it</li>
-              <li>Right-click a stack to change how it looks, or to remove it</li>
-              <li>The last row opens the folder in Files</li>
-            </ul>
+            <p>Drag a folder from Files onto the dock and it opens as a fan, newest file nearest the dock.
+              Right-click a stack to change its view or sort, or to remove it.</p>
           </div>
           <figure>
             <div class="shot"><img src="screenshots/dock-fan.webp" width="760" height="560" loading="lazy"
@@ -248,9 +242,8 @@
         <div class="feature wide flip">
           <div class="text">
             <h3>Applications grid</h3>
-            <p>The Applications stack opens as a grid of everything installed, sorted by name, with
-              your app folders, Games, System and the rest, as folders.</p>
-            <p>Any folder can open as a grid too, and any stack as a fan: the view and the sort are set per stack.</p>
+            <p>The Applications stack shows installed apps as a grid, with app folders as folders. Any stack can
+              be a grid or a fan.</p>
           </div>
           <figure>
             <div class="shot"><img src="screenshots/dock-grid.webp" width="860" height="600" loading="lazy"
@@ -266,15 +259,7 @@
           <div class="cards">
             <div class="card">
               <h3>Zoom</h3>
-              <p>Icons near the pointer grow and their neighbours spread apart to make room. It is on by default.</p>
-            </div>
-            <div class="card">
-              <h3>Sharp icons</h3>
-              <p>A zoomed or tilted icon is looked up at the size it covers on screen, so it is drawn from the
-                icon theme at that size rather than stretched from a 48 px bitmap.</p>
-            </div>
-            <div class="card">
-              <h3>Settings</h3>
+              <p>Icons near the pointer grow, drawn from the icon theme at the zoomed size. On by default.</p>
               <pre><code>gsettings set io.elementary.dock zoom-size 84
 gsettings set io.elementary.dock zoom-enabled false</code></pre>
             </div>
@@ -289,20 +274,14 @@ gsettings set io.elementary.dock zoom-enabled false</code></pre>
       <div class="section-head">
         <div class="package-head"><span class="pkg">pantheon-paper</span><span class="version" data-pkg="pantheon-paper"></span></div>
         <h2>Tiling</h2>
-        <p>PaperWM-style scrolling tiling, as a Gala plugin: each workspace on the primary monitor becomes a
-          horizontal strip of columns that scrolls to follow focus. Wingpanel, the dock and the multitasking view
-          stay as they are.</p>
+        <p>A Gala plugin for PaperWM-style tiling. Each workspace on the primary monitor is a horizontal strip
+          of columns that scrolls to follow focus.</p>
       </div>
       <div class="cards">
         <div class="card">
           <h3>Columns</h3>
-          <p>New windows open as columns to the right of the focused one, and the strip scrolls so the focused
-            column is on screen. A column can hold several windows stacked. Dialogs and other non-normal windows
-            float.</p>
-          <ul class="ticks">
-            <li>Super+scroll pans the strip</li>
-            <li>Drag a titlebar to drop a window into a column</li>
-          </ul>
+          <p>New windows open to the right of the focused one. A column can hold several windows; dialogs float.
+            Super+scroll pans the strip.</p>
         </div>
         <div class="card">
           <h3>Keys</h3>
@@ -316,9 +295,8 @@ Super+Shift+F       float</code></pre>
         </div>
         <div class="card">
           <h3>What it changes</h3>
-          <p>Workspace switching moves to <code>Ctrl+Super+←/→</code>, in place of half-screen tiling, which is
-            turned off with edge tiling. The multitasking view keeps <code>Super+S</code>, and move-to-monitor is
-            unbound. These are defaults: a value you set yourself still wins.</p>
+          <p>Workspace switching moves to <code>Ctrl+Super+←/→</code>. Half-screen and edge tiling are off, and
+            move-to-monitor is unbound. Keys you have set yourself are kept.</p>
         </div>
       </div>
     </div>
@@ -329,32 +307,17 @@ Super+Shift+F       float</code></pre>
       <div class="section-head">
         <div class="package-head"><span class="pkg">io.elementary.terminal-ghostty</span><span class="version" data-pkg="io.elementary.terminal-ghostty"></span></div>
         <h2>Terminal</h2>
-        <p>elementary Terminal with VTE replaced by <a href="https://github.com/arsfeld/libghostty-gtk">libghostty-gtk</a>,
-          a GTK 4 widget on <a href="https://lib.ghostty.org/">libghostty-vt</a>.</p>
+        <p>elementary Terminal with VTE swapped for <a href="https://github.com/arsfeld/libghostty-gtk">libghostty-gtk</a>,
+          a GTK 4 widget on <a href="https://lib.ghostty.org/">libghostty-vt</a>. Replaces
+          <code>io.elementary.terminal</code>; tabs, themes and paste protection are unchanged.</p>
       </div>
 
       <figure>
         <div class="shot"><img src="screenshots/terminal.webp" width="1120" height="380" loading="lazy"
           alt="elementary Terminal with two tabs, showing a truecolor gradient, the palette, bold, italic, curly and double underlines, accented and CJK text, and a hyperlink."></div>
-        <figcaption>Truecolor, styled and coloured underlines, wide characters and OSC 8 links, drawn by libghostty-vt.</figcaption>
+        <figcaption>Truecolor, styled underlines, wide characters, OSC 8 links and OSC 52 clipboard, plus the kitty
+          keyboard protocol and synchronized output.</figcaption>
       </figure>
-
-      <div class="cards" style="margin-top:48px">
-        <div class="card">
-          <h3>OSC 52 clipboard</h3>
-          <p>OSC 52 clipboard writes, and opt-in reads. Works over SSH.</p>
-        </div>
-        <div class="card">
-          <h3>VT support</h3>
-          <p>Ghostty's parser and terminal state: the kitty keyboard protocol, synchronized output and grapheme
-            clustering.</p>
-        </div>
-        <div class="card">
-          <h3>Unchanged from elementary Terminal</h3>
-          <p>Tabs, sudo paste protection, natural copy and paste, and its themes. It replaces
-            <code>io.elementary.terminal</code> and is the default terminal.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -365,21 +328,13 @@ Super+Shift+F       float</code></pre>
           <span class="pkg">libghostty-gtk-1-0</span><span class="pkg">libghostty-gtk-dev</span><span class="version" data-pkg="libghostty-gtk-1-0"></span>
         </div>
         <h2>libghostty-gtk</h2>
-        <p>The widget behind Terminal, as a library. It carries the part of VTE's <code>Vte.Terminal</code> API that
-          elementary Terminal uses, under the namespace <code>GhosttyGtk</code>, so porting an app off VTE is mostly a
-          rename. Porting Terminal took about ten lines.</p>
+        <p>The terminal widget Terminal uses. It implements the subset of <code>Vte.Terminal</code> that elementary
+          Terminal needs, under <code>GhosttyGtk</code>. libghostty-vt is linked statically; a VAPI is included.</p>
       </div>
       <div class="cards">
         <div class="card">
-          <h3>What it does</h3>
-          <p>Draws with GtkSnapshot and handles its own PTY, input (keyboard, IME, mouse, paste), selection, search,
-            URL matching and the OSC 52 clipboard. libghostty-vt provides parsing and terminal state.</p>
-        </div>
-        <div class="card">
-          <h3>Build against it</h3>
           <pre><code>sudo apt install libghostty-gtk-dev
 pkg-config --cflags --libs ghostty-gtk-1</code></pre>
-          <p>libghostty-vt is linked in statically, so nothing else is needed. A VAPI is included for Vala.</p>
         </div>
       </div>
     </div>
@@ -395,12 +350,12 @@ pkg-config --cflags --libs ghostty-gtk-1</code></pre>
         <div class="step">
           <div>
             <h3>Add the repository</h3>
-            <p>Fetch the signing key and add the source. <code>signed-by</code> trusts the key for this repository only.</p>
+            <p><code>signed-by</code> limits the key to this repository.</p>
             <div class="term">
               <div class="bar"><span>Terminal</span><button class="copy" type="button" data-copy="add">Copy</button></div>
-<pre id="add"><span class="p">$ </span>sudo curl -fsSLo /usr/share/keyrings/pantheon-apt.gpg https://arsfeld.github.io/pantheon-apt/pantheon-apt.gpg
-<span class="p">$ </span>echo "deb [signed-by=/usr/share/keyrings/pantheon-apt.gpg] https://arsfeld.github.io/pantheon-apt noble main" \
-    | sudo tee /etc/apt/sources.list.d/pantheon-apt.list
+<pre id="add"><span class="p">$ </span>sudo curl -fsSLo /usr/share/keyrings/pantheon-extras.gpg https://arsfeld.github.io/pantheon-extras/pantheon-extras.gpg
+<span class="p">$ </span>echo "deb [signed-by=/usr/share/keyrings/pantheon-extras.gpg] https://arsfeld.github.io/pantheon-extras noble main" \
+    | sudo tee /etc/apt/sources.list.d/pantheon-extras.list
 <span class="p">$ </span>sudo apt update</pre>
             </div>
           </div>
@@ -408,8 +363,7 @@ pkg-config --cflags --libs ghostty-gtk-1</code></pre>
         <div class="step">
           <div>
             <h3>Install packages</h3>
-            <p>The dock and Terminal each replace elementary's package for the same app. The dock and tiling start at
-              your next login.</p>
+            <p>The dock and tiling take effect at your next login.</p>
             <div class="term">
               <div class="bar"><span>Terminal</span><button class="copy" type="button" data-copy="pkgs">Copy</button></div>
 <pre id="pkgs"><span class="p">$ </span>sudo apt install io.elementary.dock-extras
@@ -421,8 +375,7 @@ pkg-config --cflags --libs ghostty-gtk-1</code></pre>
         <div class="step">
           <div>
             <h3>Revert</h3>
-            <p>Installing elementary's packages puts them back and removes these. Removing pantheon-paper puts
-              Pantheon's keys back.</p>
+            <p>Reinstalling elementary's packages replaces these. Removing pantheon-paper restores Pantheon's keys.</p>
             <div class="term">
               <div class="bar"><span>Terminal</span><button class="copy" type="button" data-copy="back">Copy</button></div>
 <pre id="back"><span class="p">$ </span>sudo apt install io.elementary.dock io.elementary.terminal
@@ -437,16 +390,16 @@ pkg-config --cflags --libs ghostty-gtk-1</code></pre>
           <h3>Signing key</h3>
           <p><code>arsfeld apt &lt;alex@rosenfeld.one&gt;</code>, RSA 4096</p>
           <p class="fingerprint">4D10 1C42 0595 DC60 79F4 E577 0D5C 3479 3F4F 06A7</p>
-          <p><a href="pantheon-apt.gpg">Binary</a> · <a href="pantheon-apt.asc">Armored</a></p>
+          <p><a href="pantheon-extras.gpg">Binary</a> · <a href="pantheon-extras.asc">Armored</a></p>
         </div>
         <div class="card">
           <h3>Where it comes from</h3>
-          <p>Each package is built in elementary's OS 8 container by its own repository's CI:
-            <a href="https://github.com/arsfeld/elementary-dock">elementary-dock</a>,
+          <p>Built in elementary's OS 8 container by each project's CI
+            (<a href="https://github.com/arsfeld/elementary-dock">elementary-dock</a>,
             <a href="https://github.com/arsfeld/pantheon-paper">pantheon-paper</a>,
-            <a href="https://github.com/arsfeld/elementary-terminal">elementary-terminal</a> and
-            <a href="https://github.com/arsfeld/libghostty-gtk">libghostty-gtk</a>. Every publish is then installed
-            in a clean elementary OS 8 container and checked.</p>
+            <a href="https://github.com/arsfeld/elementary-terminal">elementary-terminal</a>,
+            <a href="https://github.com/arsfeld/libghostty-gtk">libghostty-gtk</a>). Each publish is test-installed
+            in a clean container.</p>
         </div>
       </div>
     </div>
@@ -459,7 +412,7 @@ pkg-config --cflags --libs ghostty-gtk-1</code></pre>
       <i style="background:var(--strawberry-500)"></i><i style="background:var(--orange-500)"></i><i style="background:var(--banana-500)"></i><i style="background:var(--lime-500)"></i><i style="background:var(--mint-500)"></i><i style="background:var(--blueberry-500)"></i><i style="background:var(--grape-500)"></i>
     </div>
     <p>Experimental, and not affiliated with elementary or Ghostty.</p>
-    <p>Source: <a href="https://github.com/arsfeld/pantheon-apt">arsfeld/pantheon-apt</a></p>
+    <p>Source: <a href="https://github.com/arsfeld/pantheon-extras">arsfeld/pantheon-extras</a></p>
   </div>
 </footer>
 
