@@ -298,3 +298,30 @@ Description: GTK4 terminal widget on Ghostty's terminal engine - development fil
  This package contains the header, the Vala API and the pkg-config file
  (ghostty-gtk-1).
 
+Package: pantheon-paper
+Architecture: amd64
+Version: 0.1.0+git20261113140321.6052ad83
+Priority: optional
+Section: x11
+Maintainer: Alexandre Rosenfeld <alex@rosenfeld.one>
+Installed-Size: 138
+Depends: gala (>= 8.6), gala (<< 8.7), dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.4), libgala0, libgee-0.8-2 (>= 0.8.3), libgles2, libglib2.0-0t64 (>= 2.38.0), libmutter-14-0 (>= 43.0)
+Filename: pool/main/pantheon-paper/pantheon-paper_0.1.0+git20261113140321.6052ad83_amd64.deb
+Size: 43140
+MD5sum: d2e86d7722df536cde6896aa5cf9d22f
+SHA1: e3e93b8e9763e4a63be4b2f084f0075ac4b42385
+SHA256: 15ced5d606cf164454cde9a043381484c9973cb41f6bb1023c22b3e0491e038c
+SHA512: fdb1b37aff89da5e50a7018c82f2e57ce71a3ad18f35ea37195ed90f3507933fc350cf08b42d217bcedd3c83b70efd7d2cb5f8351160651cd883ebc1090902ab
+Homepage: https://github.com/arsfeld/pantheon-paper
+Description: PaperWM-style scrolling tiling for Pantheon
+ A Gala plugin: each workspace on the primary monitor becomes a horizontal
+ strip of columns that scrolls to follow focus, keeping Wingpanel, the dock
+ and the multitasking view. Super+arrows move focus, Super+Shift+arrows move
+ windows, Super+R cycles a column's width.
+ .
+ It moves some of Pantheon's default keys to make room: workspace switching
+ goes to Ctrl+Super+Left/Right (in place of half-screen tiling, which is
+ turned off with edge tiling), the multitasking view keeps Super+S only, and
+ move-to-monitor is unbound. Values set in a user's own settings still win.
+ Gala loads plugins at startup, so log out and back in after installing.
+
