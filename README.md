@@ -6,6 +6,9 @@ The apt repository at **https://arsfeld.github.io/pantheon-apt**, for elementary
 - [arsfeld/elementary-dock](https://github.com/arsfeld/elementary-dock)
   (branch `extras`): `io.elementary.dock-extras`, elementary's dock with
   folder stacks, zoom and sharp icons, which replaces `io.elementary.dock`
+- [arsfeld/pantheon-paper](https://github.com/arsfeld/pantheon-paper):
+  `pantheon-paper`, PaperWM-style scrolling tiling as a Gala plugin; it moves
+  Pantheon's workspace keys to Ctrl+Super+Left/Right to make room
 - [arsfeld/elementary-terminal](https://github.com/arsfeld/elementary-terminal)
   (branch `libghostty-gtk`): `io.elementary.terminal-ghostty`, elementary
   Terminal on Ghostty's terminal engine, which replaces `io.elementary.terminal`
@@ -23,6 +26,7 @@ echo "deb [signed-by=/usr/share/keyrings/pantheon-apt.gpg] https://arsfeld.githu
   | sudo tee /etc/apt/sources.list.d/pantheon-apt.list
 sudo apt update
 sudo apt install io.elementary.dock-extras         # then log out and back in; and/or
+sudo apt install pantheon-paper                    # then log out and back in; and/or
 sudo apt install io.elementary.terminal-ghostty
 ```
 
@@ -49,8 +53,9 @@ hourly (and on demand: `gh workflow run publish -R arsfeld/pantheon-apt`):
 3. `verify` waits for Pages to serve the new `InRelease`, then installs from
    the repo in a clean elementary OS 8 container exactly as above, with
    `apt-get update --error-on=any`, and checks that the Terminal replaced
-   elementary's and finds its library, and that the dock replaced
-   elementary's and carries its extra settings.
+   elementary's and finds its library, that the dock replaced
+   elementary's and carries its extra settings, and that the tiling plugin
+   is where gala loads plugins, links, and has moved Pantheon's keys.
 
 Polling, rather than a trigger from each source repo, keeps every credential
 in this repo. Sources are listed in `sources`; the page, its screenshots and
@@ -59,7 +64,7 @@ repo's own `Packages` index, so it never needs editing for a new build.
 
 ## Screenshots
 
-`site/screenshots/` were taken in a private headless Gala (never a live
+The tiling section has no screenshot yet. `site/screenshots/` were taken in a private headless Gala (never a live
 session) with the packaged dock and Terminal, a curated app list and a demo
 Downloads folder, using the dock's `DOCK_ZOOM_AT` and `DOCK_STACKS_OPEN` test
 hooks to hold the zoom and open a stack. Retake them when a feature's look

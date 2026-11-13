@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>pantheon-apt</title>
-<meta name="description" content="A signed apt repository for elementary OS 8: elementary's dock with folder stacks and zoom, and elementary Terminal on Ghostty's terminal engine.">
+<meta name="description" content="A signed apt repository for elementary OS 8: elementary's dock with folder stacks and zoom, PaperWM-style scrolling tiling, and elementary Terminal on Ghostty's terminal engine.">
 <meta name="color-scheme" content="light dark">
 <style>
   /* elementary's palette: https://elementary.io/brand#color */
@@ -193,6 +193,7 @@
     </a>
     <nav>
       <a href="#dock">Dock</a>
+      <a href="#tiling">Tiling</a>
       <a href="#terminal">Terminal</a>
       <a href="#install">Install</a>
       <a class="optional" href="https://github.com/arsfeld/pantheon-apt">Source</a>
@@ -204,8 +205,8 @@
   <section class="hero" style="padding-bottom:0">
     <div class="wrap">
       <h1>pantheon-apt</h1>
-      <p class="lead">A signed apt repository for elementary OS 8 with two packages: elementary's dock with folder
-        stacks and zoom, and elementary Terminal on libghostty-vt.</p>
+      <p class="lead">A signed apt repository for elementary OS 8: elementary's dock with folder stacks and zoom,
+        PaperWM-style scrolling tiling, and elementary Terminal on libghostty-vt.</p>
       <div class="actions">
         <a class="button suggested" href="#install">Install</a>
         <a class="button flat" href="https://github.com/arsfeld/pantheon-apt">Source</a>
@@ -283,7 +284,47 @@ gsettings set io.elementary.dock zoom-enabled false</code></pre>
     </div>
   </section>
 
-  <section id="terminal">
+  <section id="tiling">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="package-head"><span class="pkg">pantheon-paper</span><span class="version" data-pkg="pantheon-paper"></span></div>
+        <h2>Tiling</h2>
+        <p>PaperWM-style scrolling tiling, as a Gala plugin: each workspace on the primary monitor becomes a
+          horizontal strip of columns that scrolls to follow focus. Wingpanel, the dock and the multitasking view
+          stay as they are.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Columns</h3>
+          <p>New windows open as columns to the right of the focused one, and the strip scrolls so the focused
+            column is on screen. A column can hold several windows stacked. Dialogs and other non-normal windows
+            float.</p>
+          <ul class="ticks">
+            <li>Super+scroll pans the strip</li>
+            <li>Drag a titlebar to drop a window into a column</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Keys</h3>
+          <pre><code>Super+arrows        focus
+Super+Shift+arrows  move
+Super+R             width ⅓ ½ ⅔
+Super+M             full width
+Super+I / Super+U   slurp / barf
+Super+C             centre
+Super+Shift+F       float</code></pre>
+        </div>
+        <div class="card">
+          <h3>What it changes</h3>
+          <p>Workspace switching moves to <code>Ctrl+Super+←/→</code>, in place of half-screen tiling, which is
+            turned off with edge tiling. The multitasking view keeps <code>Super+S</code>, and move-to-monitor is
+            unbound. These are defaults: a value you set yourself still wins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="terminal" class="alt">
     <div class="wrap">
       <div class="section-head">
         <div class="package-head"><span class="pkg">io.elementary.terminal-ghostty</span><span class="version" data-pkg="io.elementary.terminal-ghostty"></span></div>
@@ -317,7 +358,7 @@ gsettings set io.elementary.dock zoom-enabled false</code></pre>
     </div>
   </section>
 
-  <section class="alt">
+  <section>
     <div class="wrap">
       <div class="section-head">
         <div class="package-head">
@@ -344,11 +385,11 @@ pkg-config --cflags --libs ghostty-gtk-1</code></pre>
     </div>
   </section>
 
-  <section id="install">
+  <section id="install" class="alt">
     <div class="wrap">
       <div class="section-head">
         <h2>Install</h2>
-        <p>On elementary OS 8 (noble, amd64). Install either package, or both.</p>
+        <p>On elementary OS 8 (noble, amd64). Install any of the packages.</p>
       </div>
       <div class="steps">
         <div class="step">
@@ -367,10 +408,12 @@ pkg-config --cflags --libs ghostty-gtk-1</code></pre>
         <div class="step">
           <div>
             <h3>Install packages</h3>
-            <p>Each replaces elementary's package for the same app. The dock starts at your next login.</p>
+            <p>The dock and Terminal each replace elementary's package for the same app. The dock and tiling start at
+              your next login.</p>
             <div class="term">
               <div class="bar"><span>Terminal</span><button class="copy" type="button" data-copy="pkgs">Copy</button></div>
 <pre id="pkgs"><span class="p">$ </span>sudo apt install io.elementary.dock-extras
+<span class="p">$ </span>sudo apt install pantheon-paper
 <span class="p">$ </span>sudo apt install io.elementary.terminal-ghostty</pre>
             </div>
           </div>
@@ -378,10 +421,12 @@ pkg-config --cflags --libs ghostty-gtk-1</code></pre>
         <div class="step">
           <div>
             <h3>Revert</h3>
-            <p>Installing elementary's packages puts them back and removes these.</p>
+            <p>Installing elementary's packages puts them back and removes these. Removing pantheon-paper puts
+              Pantheon's keys back.</p>
             <div class="term">
               <div class="bar"><span>Terminal</span><button class="copy" type="button" data-copy="back">Copy</button></div>
-<pre id="back"><span class="p">$ </span>sudo apt install io.elementary.dock io.elementary.terminal</pre>
+<pre id="back"><span class="p">$ </span>sudo apt install io.elementary.dock io.elementary.terminal
+<span class="p">$ </span>sudo apt remove pantheon-paper</pre>
             </div>
           </div>
         </div>
@@ -398,6 +443,7 @@ pkg-config --cflags --libs ghostty-gtk-1</code></pre>
           <h3>Where it comes from</h3>
           <p>Each package is built in elementary's OS 8 container by its own repository's CI:
             <a href="https://github.com/arsfeld/elementary-dock">elementary-dock</a>,
+            <a href="https://github.com/arsfeld/pantheon-paper">pantheon-paper</a>,
             <a href="https://github.com/arsfeld/elementary-terminal">elementary-terminal</a> and
             <a href="https://github.com/arsfeld/libghostty-gtk">libghostty-gtk</a>. Every publish is then installed
             in a clean elementary OS 8 container and checked.</p>

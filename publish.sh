@@ -63,7 +63,7 @@ apt-ftparchive \
   -o APT::FTPArchive::Release::Codename=noble \
   -o APT::FTPArchive::Release::Architectures=amd64 \
   -o APT::FTPArchive::Release::Components=main \
-  -o "APT::FTPArchive::Release::Description=elementary Terminal on libghostty-gtk and the elementary dock with extras, for elementary OS 8" \
+  -o "APT::FTPArchive::Release::Description=The elementary dock with extras, PaperWM-style tiling and elementary Terminal on libghostty-gtk, for elementary OS 8" \
   release dists/noble > dists/noble/Release.new
 mv dists/noble/Release.new dists/noble/Release
 rm -f dists/noble/InRelease dists/noble/Release.gpg

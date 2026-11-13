@@ -82,6 +82,7 @@ jobs:
           apt-get install -y io.elementary.terminal-ghostty
           apt-get install -y io.elementary.dock
           apt-get install -y io.elementary.dock-extras
+          apt-get install -y pantheon-paper
       - name: Check the result
         run: |
           set -x
@@ -102,3 +103,11 @@ jobs:
           for key in stacks zoom-enabled zoom-size; do
             gsettings list-keys io.elementary.dock | grep -qx "$key"
           done
+          # pantheon-paper: the plugin where gala loads plugins, linked, with
+          # its schema and the keys it moves. Its own CI also checks that gala
+          # loads it and that no keys clash.
+          plugin=/usr/lib/x86_64-linux-gnu/gala/plugins/libgala-paper.so
+          test -f "$plugin"
+          if ldd "$plugin" | grep 'not found'; then exit 1; fi
+          gsettings list-keys io.github.arsfeld.paper.keybindings | grep -qx focus-left
+          test "$(XDG_CURRENT_DESKTOP=Pantheon gsettings get org.gnome.desktop.wm.keybindings switch-to-workspace-left)" = "['<Control><Super>Left']"
