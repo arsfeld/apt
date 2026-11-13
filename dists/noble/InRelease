@@ -4,44 +4,44 @@ Hash: SHA512
 Architectures: amd64
 Codename: noble
 Components: main
-Date: Fri, 13 Nov 2026 15:30:20 +0000
+Date: Fri, 13 Nov 2026 15:49:04 +0000
 Description: The elementary dock with extras, PaperWM-style tiling and elementary Terminal on libghostty-gtk, for elementary OS 8
 Label: pantheon-extras
 Origin: arsfeld
 Suite: noble
 MD5Sum:
- 72910a5c33ec680ffcad496c4aed403f             2044 Release
+ 387179a8d6fd59fd7697fce3f41c2b7d             2044 Release
  2d31d13ae1f065b8591fd774f21a17b1            17281 main/binary-amd64/Packages
  b9c7bc334f6eed383b4b56ba512429d0             4236 main/binary-amd64/Packages.gz
  e1fb37960595b158c41195e374c3c459             3956 main/binary-amd64/Packages.xz
 SHA1:
- 049be3ea3fac3cbc8b257241de9fe0bf9b48e8a7             2044 Release
+ f6c14c3301036d1d4996939cbd292bb0ced1b3b7             2044 Release
  5d3597a36db08a7650708721e693fdfe0a00e549            17281 main/binary-amd64/Packages
  c7961789fbcbc0d79f11c5454f7c240dfebd56e8             4236 main/binary-amd64/Packages.gz
  5f03e0f11728696fdea223d5007ac90bbecf54ae             3956 main/binary-amd64/Packages.xz
 SHA256:
- 0212379e28f599cad9823ee877daf28bae2c19d948446229971ebbeb82fc24ff             2044 Release
+ 693694651ac3be370ecab402aa78ab1749252d21b91f5dd6483c5aebebfddfe7             2044 Release
  f40efb402b9fd63a9a4b1a4e152d4179595487bf0a968b358fe6501f95154a12            17281 main/binary-amd64/Packages
  8bbf0c555e0b033d9178352f450d3ac309837370f6487f0ab3fe40afda860fc3             4236 main/binary-amd64/Packages.gz
  7e8bdf766a915f110e590185814356428d5637e3889dcb1d074dddd8199e810d             3956 main/binary-amd64/Packages.xz
 SHA512:
- ebb1dde73ac480587ef6eabf27b4fe619d6d253a54feef55a002453b72e9559d1ba45500b7f21b6bf24c240cf4a26cf174d57750ee7cd046fe3e7276844281be             2044 Release
+ 757f63ac656421dfee4b57a2a54cb0712b9e4060c90e436a57902757e30c6cc29eb1e23d7016297bf28d08aaf82a63b45c58a6e836c37686b9be6d05ba8a3b8b             2044 Release
  095f0119a5e23df6c89bbadb6c1b8409561a20cbc85cf6f59d13b75ff855d0ad8b491bca3c2a106137599344d3592e146f2d9eb6589250a6b0050fb0fcac504e            17281 main/binary-amd64/Packages
  8c38abb5c4725b5934e5947e3d456a707a64b0064f3f2c83b7f0c6605d6896ebec6b67aa85feca9c7d43f76ad7d6ab054a32ad3e861540e88f43746380f1f65f             4236 main/binary-amd64/Packages.gz
  bb57b316bfb60b1ad43ba193579c6bbd7bf1fad4dea2f2e35918ebdf4bd55a69f54677d7e83066269d285ce0c705c3829d824a12e72c79c070aef2689c4043b1             3956 main/binary-amd64/Packages.xz
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEETRAcQgWV3GB59OV3DVw0eT9PBqcFAmr3LQwACgkQDVw0eT9P
-BqcXrw/+O0kyyEdcGxtxfxjrmgWw9sanJlpbTGlF0IukTAF0fnTWDpIcvXf6SHHe
-ApGIIcbsvlfVN1Vsxcjoj1s9lqzNoSc2RFCGfbAIVTkKZKi9ck2qN60GCm2sNd/k
-QBaaHFMufzcisJBLV1//fOkr2yPgsUfheqzCUQ3Wbxk0grV8bD6Y9H9Cpwczaobe
-+DADAsRJsA5LBzY9RVQlnkqHVezvyH1ygr84+oSlCaFt7t5n8ouSnFJL3dGphScV
-Ozh7+kE08znqeRH1IJLSFZ4ROeDmCAWz9Js7z09LvPxpVxOSjOGey4XEr0zJyWt1
-L6Fs48nnmr8LDy+AqE+NUZLHG6ewF7Wqz24MD/rF3rJ2htCP5GvkTNFY/lbcXCc6
-5hhWEN1CrZgk0JBJEMcqsAAFMA47n+YsCHVM+wd52lVqANCL47gVU4Akk7iSZfCs
-CXXuLBVNXAilTlu86b+yGpZE9BGJzttMPKgr1dbm0ZpGCU47VTYmQqBa99aGyr6J
-L6QQEz0xImw3oQNj7U5gsrv7c/iN069dlryuAtJIwVIqkyIY83y4a6hAP2ENbl2L
-+vNhmkJWZnSjbu4B+/5TjvNeCdoDqJUOaFIlpJ0y88QBqAkaFN//o2DCW/+giRpP
-cY5ZZ+l371+VW5j/XsGLe/QwVsMdIH3lXrssV8o1flUBBZIOP2U=
-=r57L
+iQIzBAEBCgAdFiEETRAcQgWV3GB59OV3DVw0eT9PBqcFAmr3MXAACgkQDVw0eT9P
+BqeU+hAAkE2KvSfxRv0Klzj1kqpjJXUQf/ycZO96YoJWU22hwVzVL2cyOsLGLS/s
+Sz1FLn77h0SQ7FMQQCCxwajBPN4F4Qo88hvpVpe6N/bmiQLP7/DRRJ5p5dZyTrJN
+FAwwIPTMJ6ZJTLg8WpQl8Xg9OkVUgeotajMNzOZmQv04+MMDH4V9Ot+II3kt/mA0
+WxriBFHLvUGGbS099qGMVzfq1gitsGEfsxkQzAKa5dx3iw7ZRWjeOgWzBgYY3zMm
+LyJ0Szxhbz9+K9c6c8snhJ37BoNu2w4ugeEv1R8ZuXMu4k0QeDV5RUBUW+NivI8i
+Cgh9CvAROKhRe3LRMWcTrvt7N5XnwZT3kihaZ+2zDLVOKD4sI29UJkR31GmH0m9q
+JlrhRvlBQLRHq9bfWgdgVL3qa2AtOxzJulOR/Iyh3Sh4SLnQmFv4hiDw9RmOP/DB
+L10BimdiEmSdApsuchezfSZ4IVaxyRRm4YBq+dssQQDBEGJJRfxqeTE4VM4vwIbc
+hHq2vqlXvN1lzhGBciy/i9Vlx1krSrnMWFjeo+8olMwCdE5uoOZbWnOOsJ9vEIq/
+tFRugmKjsVlOXAc/z1VQS3hfvMv8Nj89kJ2GVnCXhbo666Xn3UkfRe6O++F9FyB8
+bzAXTNnERNIsLsk8o9nfW7iA7FZQl0umC9zRwm3QyC3ujv6t56A=
+=ki2n
 -----END PGP SIGNATURE-----
