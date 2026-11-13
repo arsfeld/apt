@@ -7,155 +7,322 @@
 <meta name="description" content="Signed apt repository for elementary OS 8: elementary's dock with folder stacks and zoom, elementary Terminal on libghostty-vt, and libghostty-gtk.">
 <meta name="color-scheme" content="light dark">
 <style>
+  /* elementary's palette: https://elementary.io/brand#color */
   :root {
-    --bg: #fff; --fg: #24292f; --muted: #57606a; --border: #d0d7de;
-    --accent: #0d52bf; --code-bg: #f6f8fa;
+    --blueberry-300: #64baff; --blueberry-500: #3689e6; --blueberry-700: #0d52bf;
+    --lime-500: #68b723; --strawberry-500: #c6262e; --orange-500: #f37329; --banana-500: #f9c440;
+    --grape-500: #a56de2; --mint-500: #28bca3;
+    --silver-100: #fafafa; --silver-300: #d4d4d4; --silver-500: #abacae;
+    --black-300: #666; --black-500: #333; --black-700: #1a1a1a;
+
+    --bg: var(--silver-100);
+    --bg-alt: #fff;
+    --fg: var(--black-500);
+    --fg-strong: var(--black-700);
+    --muted: var(--black-300);
+    --border: rgba(0, 0, 0, .12);
+    --accent: var(--blueberry-500);
+    --code-bg: #2d2d2d;
+    --code-fg: #f2f2f2;
+    --card-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 1px 3px rgba(0, 0, 0, .12), 0 3px 8px rgba(0, 0, 0, .06);
+    --window-shadow: 0 0 0 1px rgba(0, 0, 0, .14), 0 4px 10px rgba(0, 0, 0, .12), 0 12px 28px -8px rgba(0, 0, 0, .28);
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #0d1117; --fg: #e6edf3; --muted: #8d96a0; --border: #30363d;
-      --accent: #64baff; --code-bg: #161b22;
+      --bg: #222; --bg-alt: #2b2b2b; --fg: #e6e6e6; --fg-strong: #fff; --muted: var(--silver-500);
+      --border: rgba(255, 255, 255, .1); --accent: var(--blueberry-300); --code-bg: #181818;
+      --card-shadow: 0 0 0 1px rgba(255, 255, 255, .06), 0 1px 3px rgba(0, 0, 0, .4);
+      --window-shadow: 0 0 0 1px rgba(255, 255, 255, .08), 0 4px 10px rgba(0, 0, 0, .35), 0 12px 28px -8px rgba(0, 0, 0, .6);
     }
   }
   :root[data-theme="dark"] {
-    --bg: #0d1117; --fg: #e6edf3; --muted: #8d96a0; --border: #30363d;
-    --accent: #64baff; --code-bg: #161b22;
+    --bg: #222; --bg-alt: #2b2b2b; --fg: #e6e6e6; --fg-strong: #fff; --muted: var(--silver-500);
+    --border: rgba(255, 255, 255, .1); --accent: var(--blueberry-300); --code-bg: #181818;
+    --card-shadow: 0 0 0 1px rgba(255, 255, 255, .06), 0 1px 3px rgba(0, 0, 0, .4);
+    --window-shadow: 0 0 0 1px rgba(255, 255, 255, .08), 0 4px 10px rgba(0, 0, 0, .35), 0 12px 28px -8px rgba(0, 0, 0, .6);
   }
+
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0; background: var(--bg); color: var(--fg);
-    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Inter, sans-serif;
+    font: 16px/1.65 Inter, "Open Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
-  main { max-width: 860px; margin: 0 auto; padding: 32px 16px 64px; }
-  a { color: var(--accent); }
-  h1, h2, h3 { line-height: 1.25; margin: 1.6em 0 .5em; }
-  h1 { font-size: 2rem; margin-top: 0; }
-  h2 { font-size: 1.45rem; padding-bottom: .3em; border-bottom: 1px solid var(--border); }
-  h3 { font-size: 1.1rem; }
-  p, ul, pre, figure, table { margin: 0 0 1em; }
-  ul { padding-left: 1.4em; }
-  li + li { margin-top: .25em; }
-  code, pre { font-family: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, monospace; font-size: .88em; }
-  :not(pre) > code { background: var(--code-bg); padding: .1em .35em; border-radius: 4px; overflow-wrap: anywhere; }
-  pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; overflow-x: auto; }
-  pre code { font-size: 1em; }
-  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: 6px; }
-  figcaption { color: var(--muted); font-size: .88rem; margin-top: 6px; }
-  .version { color: var(--muted); font-size: .88rem; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1, h2, h3 { color: var(--fg-strong); line-height: 1.2; letter-spacing: -.015em; margin: 0; }
+  h1 { font-size: clamp(2rem, 5vw, 2.6rem); font-weight: 300; }
+  h2 { font-size: 1.6rem; font-weight: 300; }
+  h3 { font-size: 1.05rem; font-weight: 600; letter-spacing: 0; margin: 32px 0 10px; }
+  p { margin: 0 0 14px; }
+  code, pre { font-family: "Roboto Mono", "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: .86em; }
+  :not(pre) > code { background: color-mix(in srgb, var(--fg) 8%, transparent); padding: .1em .35em; border-radius: 4px; overflow-wrap: anywhere; }
+  img { display: block; max-width: 100%; height: auto; }
+
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+
+  /* Header, like wingpanel: thin and quiet */
+  header.top {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  header.top .wrap { display: flex; align-items: center; gap: 24px; height: 52px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--fg-strong); }
+  .brand:hover { text-decoration: none; }
+  header nav { margin-left: auto; display: flex; gap: 20px; font-size: .92rem; }
+  header nav a { color: var(--fg); opacity: .8; }
+  header nav a:hover { opacity: 1; text-decoration: none; color: var(--accent); }
+  @media (max-width: 560px) { header nav a.optional { display: none; } header nav { gap: 14px; } }
+
+  section { padding: 48px 0; border-top: 1px solid var(--border); }
+  section.intro { border-top: none; padding-top: 40px; }
+  .intro p.lead { color: var(--muted); font-size: 1.08rem; margin: 12px 0 28px; max-width: 46rem; }
+
+  /* Section heading: a package's name and its version */
+  .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-bottom: 14px; }
+  .pkg {
+    font-family: "Roboto Mono", ui-monospace, monospace; font-size: .8rem; color: var(--fg-strong);
+    background: var(--bg-alt); border: 1px solid var(--border); border-radius: 999px; padding: 2px 11px;
+  }
+  .version { font-size: .8rem; color: var(--muted); }
   .version:empty { display: none; }
-  .table-wrap { overflow-x: auto; margin-bottom: 1em; }
-  table { border-collapse: collapse; width: 100%; font-size: .94rem; margin: 0; }
-  th, td { border: 1px solid var(--border); padding: 6px 10px; text-align: left; vertical-align: top; }
-  th { background: var(--code-bg); }
+
+  /* Package table, as a card */
+  .card { background: var(--bg-alt); border-radius: 10px; box-shadow: var(--card-shadow); overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+  th, td { padding: 10px 16px; text-align: left; vertical-align: top; }
+  th { font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); border-bottom: 1px solid var(--border); }
+  tr + tr td { border-top: 1px solid var(--border); }
   td code { white-space: nowrap; overflow-wrap: normal; }
+
+  /* Screenshots, as windows */
+  figure { margin: 20px 0; }
+  .shot { border-radius: 10px; overflow: hidden; box-shadow: var(--window-shadow); background: #000; }
+  .shot img { width: 100%; }
+  figcaption { font-size: .85rem; color: var(--muted); margin-top: 10px; }
+  .pair { display: grid; gap: 20px; margin: 20px 0; }
+  .pair figure { margin: 0; }
+  @media (min-width: 760px) { .pair { grid-template-columns: 1fr 1.13fr; align-items: start; } }
+
+  ul.ticks { list-style: none; padding: 0; margin: 0 0 14px; display: grid; gap: 6px; }
+  ul.ticks li { padding-left: 28px; position: relative; }
+  ul.ticks li::before {
+    content: ""; position: absolute; left: 0; top: .3em; width: 18px; height: 18px; border-radius: 50%;
+    background: var(--lime-500) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat;
+  }
+
+  /* Commands, in an elementary Terminal-looking window */
+  .term { background: var(--code-bg); color: var(--code-fg); border-radius: 10px; box-shadow: var(--window-shadow); overflow: hidden; margin: 0 0 16px; }
+  .term .bar { display: flex; align-items: center; height: 34px; padding: 0 8px 0 14px; background: color-mix(in srgb, var(--code-bg) 88%, #fff); font-size: .78rem; color: var(--silver-500); }
+  .term .bar span { flex: 1; }
+  .term pre { margin: 0; padding: 14px 18px 16px; overflow-x: auto; line-height: 1.7; }
+  .term pre .p { color: var(--lime-500); user-select: none; }
+  .term pre .c { color: var(--silver-500); }
+  .copy {
+    font: 600 .75rem/1 Inter, system-ui, sans-serif; color: var(--silver-300); background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .12); border-radius: 5px; padding: 5px 9px; cursor: pointer;
+  }
+  .copy:hover { background: rgba(255, 255, 255, .16); color: #fff; }
+
+  .fingerprint { font-family: "Roboto Mono", ui-monospace, monospace; font-size: .88rem; color: var(--fg-strong); word-spacing: .2em; }
+
+  footer { padding: 32px 0 56px; color: var(--muted); font-size: .88rem; text-align: center; border-top: 1px solid var(--border); }
+  .dots { display: flex; gap: 6px; justify-content: center; margin-bottom: 14px; }
+  .dots i { width: 8px; height: 8px; border-radius: 50%; }
 </style>
 </head>
 <body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">
+      <svg width="26" height="26" viewBox="0 0 28 28" aria-hidden="true">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#64baff"/><stop offset="1" stop-color="#0d52bf"/></linearGradient></defs>
+        <circle cx="14" cy="14" r="13" fill="url(#g)"/>
+        <rect x="6" y="16" width="16" height="4" rx="2" fill="#fff"/>
+        <rect x="8" y="9" width="4" height="5" rx="1" fill="#fff" opacity=".85"/>
+        <rect x="16" y="9" width="4" height="5" rx="1" fill="#fff" opacity=".85"/>
+      </svg>
+      pantheon-apt
+    </a>
+    <nav>
+      <a href="#install">Install</a>
+      <a href="#dock">Dock</a>
+      <a href="#terminal">Terminal</a>
+      <a class="optional" href="https://github.com/arsfeld/pantheon-apt">Source</a>
+    </nav>
+  </div>
+</header>
+
 <main>
+<section class="intro">
+  <div class="wrap">
+    <h1>pantheon-apt</h1>
+    <p class="lead">Signed apt repository for elementary OS 8 (noble, amd64). Experimental; not affiliated with
+      elementary or Ghostty.</p>
 
-<h1>pantheon-apt</h1>
-<p>Signed apt repository for elementary OS 8 (noble, amd64). Experimental; not affiliated with elementary or Ghostty.
-  Source: <a href="https://github.com/arsfeld/pantheon-apt">arsfeld/pantheon-apt</a>.</p>
+    <div class="card">
+      <table>
+        <tr><th>Package</th><th>Replaces</th><th>Built from</th></tr>
+        <tr><td><a href="#dock"><code>io.elementary.dock-extras</code></a><br><span class="version" data-pkg="io.elementary.dock-extras"></span></td>
+            <td><code>io.elementary.dock</code></td>
+            <td><a href="https://github.com/arsfeld/elementary-dock">arsfeld/elementary-dock</a>, branch <code>extras</code></td></tr>
+        <tr><td><a href="#terminal"><code>io.elementary.terminal-ghostty</code></a><br><span class="version" data-pkg="io.elementary.terminal-ghostty"></span></td>
+            <td><code>io.elementary.terminal</code></td>
+            <td><a href="https://github.com/arsfeld/elementary-terminal">arsfeld/elementary-terminal</a>, branch <code>libghostty-gtk</code></td></tr>
+        <tr><td><a href="#libghostty-gtk"><code>libghostty-gtk-1-0</code><br><code>libghostty-gtk-dev</code></a><br><span class="version" data-pkg="libghostty-gtk-1-0"></span></td>
+            <td>—</td>
+            <td><a href="https://github.com/arsfeld/libghostty-gtk">arsfeld/libghostty-gtk</a></td></tr>
+      </table>
+    </div>
 
-<div class="table-wrap">
-<table>
-  <tr><th>Package</th><th>Replaces</th><th>Built from</th></tr>
-  <tr><td><a href="#dock"><code>io.elementary.dock-extras</code></a> <span class="version" data-pkg="io.elementary.dock-extras"></span></td>
-      <td><code>io.elementary.dock</code></td>
-      <td><a href="https://github.com/arsfeld/elementary-dock">arsfeld/elementary-dock</a> (<code>extras</code>)</td></tr>
-  <tr><td><a href="#terminal"><code>io.elementary.terminal-ghostty</code></a> <span class="version" data-pkg="io.elementary.terminal-ghostty"></span></td>
-      <td><code>io.elementary.terminal</code></td>
-      <td><a href="https://github.com/arsfeld/elementary-terminal">arsfeld/elementary-terminal</a> (<code>libghostty-gtk</code>)</td></tr>
-  <tr><td><a href="#libghostty-gtk"><code>libghostty-gtk-1-0</code>, <code>libghostty-gtk-dev</code></a> <span class="version" data-pkg="libghostty-gtk-1-0"></span></td>
-      <td>—</td>
-      <td><a href="https://github.com/arsfeld/libghostty-gtk">arsfeld/libghostty-gtk</a></td></tr>
-</table>
-</div>
+    <figure>
+      <div class="shot"><img src="screenshots/desktop.webp" width="1920" height="1080"
+        alt="An elementary OS desktop with the dock along the bottom and a Downloads stack fanned open above it."></div>
+    </figure>
+  </div>
+</section>
 
-<figure>
-  <img src="screenshots/desktop.webp" width="1920" height="1080"
-       alt="An elementary OS desktop with the dock along the bottom and a Downloads stack fanned open above it.">
-</figure>
+<section id="install">
+  <div class="wrap">
+    <div class="head"><h2>Install</h2></div>
+    <div class="term">
+      <div class="bar"><span>Add the repository</span><button class="copy" type="button" data-copy="add">Copy</button></div>
+<pre id="add"><span class="p">$ </span>sudo curl -fsSLo /usr/share/keyrings/pantheon-apt.gpg https://arsfeld.github.io/pantheon-apt/pantheon-apt.gpg
+<span class="p">$ </span>echo "deb [signed-by=/usr/share/keyrings/pantheon-apt.gpg] https://arsfeld.github.io/pantheon-apt noble main" \
+    | sudo tee /etc/apt/sources.list.d/pantheon-apt.list
+<span class="p">$ </span>sudo apt update</pre>
+    </div>
+    <div class="term">
+      <div class="bar"><span>Install either or both</span><button class="copy" type="button" data-copy="pkgs">Copy</button></div>
+<pre id="pkgs"><span class="p">$ </span>sudo apt install io.elementary.dock-extras       <span class="c"># takes effect at next login</span>
+<span class="p">$ </span>sudo apt install io.elementary.terminal-ghostty</pre>
+    </div>
+    <div class="term">
+      <div class="bar"><span>Revert to elementary's packages</span><button class="copy" type="button" data-copy="back">Copy</button></div>
+<pre id="back"><span class="p">$ </span>sudo apt install io.elementary.dock io.elementary.terminal</pre>
+    </div>
+    <p>Signing key: <code>arsfeld apt &lt;alex@rosenfeld.one&gt;</code>, RSA 4096
+      (<a href="pantheon-apt.gpg">binary</a>, <a href="pantheon-apt.asc">armored</a>)<br>
+      <span class="fingerprint">4D10 1C42 0595 DC60 79F4 E577 0D5C 3479 3F4F 06A7</span></p>
+  </div>
+</section>
 
-<h2 id="install">Install</h2>
-<pre><code>sudo curl -fsSLo /usr/share/keyrings/pantheon-apt.gpg https://arsfeld.github.io/pantheon-apt/pantheon-apt.gpg
-echo "deb [signed-by=/usr/share/keyrings/pantheon-apt.gpg] https://arsfeld.github.io/pantheon-apt noble main" \
-  | sudo tee /etc/apt/sources.list.d/pantheon-apt.list
-sudo apt update
-sudo apt install io.elementary.dock-extras        # takes effect at next login
-sudo apt install io.elementary.terminal-ghostty</code></pre>
-<p>To go back, install elementary's packages; that removes these:</p>
-<pre><code>sudo apt install io.elementary.dock io.elementary.terminal</code></pre>
-<p>Signing key: <code>arsfeld apt &lt;alex@rosenfeld.one&gt;</code>, RSA 4096, fingerprint
-  <code>4D10 1C42 0595 DC60 79F4 E577 0D5C 3479 3F4F 06A7</code>
-  (<a href="pantheon-apt.gpg">binary</a>, <a href="pantheon-apt.asc">armored</a>).</p>
+<section id="dock">
+  <div class="wrap">
+    <div class="head"><h2>Dock</h2><span class="pkg">io.elementary.dock-extras</span><span class="version" data-pkg="io.elementary.dock-extras"></span></div>
+    <p>elementary's Dock with the additions below. Everything else is unchanged.</p>
 
-<h2 id="dock">io.elementary.dock-extras</h2>
-<p>elementary's Dock with the following added. Everything else is unchanged.</p>
+    <h3>Folder stacks</h3>
+    <ul class="ticks">
+      <li>A folder placed after the launchers opens as a fan or a grid.</li>
+      <li>Drag a folder from Files onto the dock to add it. Right-click a stack to change its view and sort order, or to remove it.</li>
+      <li>Downloads sorts newest first, nearest the dock; partial downloads show progress.</li>
+      <li>The Applications stack is a grid of installed apps sorted by name, with app folders (Games, System, …) as folders.</li>
+      <li>The last row opens the folder in Files.</li>
+    </ul>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="screenshots/dock-fan.webp" width="760" height="560" loading="lazy"
+          alt="A Downloads stack fanned open above the dock, each file with its name and icon."></div>
+        <figcaption>Downloads as a fan.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="screenshots/dock-grid.webp" width="860" height="600" loading="lazy"
+          alt="The Applications stack open as a grid of app icons above the dock."></div>
+        <figcaption>Applications as a grid.</figcaption>
+      </figure>
+    </div>
 
-<h3>Folder stacks</h3>
-<ul>
-  <li>A folder placed after the launchers opens as a fan or a grid.</li>
-  <li>Drag a folder from Files onto the dock to add it. Right-click a stack to change its view and sort order, or to remove it.</li>
-  <li>Downloads sorts newest first, nearest the dock; partial downloads show progress.</li>
-  <li>The Applications stack is a grid of installed apps sorted by name, with app folders (Games, System, …) as folders.</li>
-  <li>The last row opens the folder in Files.</li>
-</ul>
-<figure>
-  <img src="screenshots/dock-fan.webp" width="760" height="560" loading="lazy"
-       alt="A Downloads stack fanned open above the dock, each file with its name and icon.">
-  <figcaption>Downloads as a fan.</figcaption>
-</figure>
-<figure>
-  <img src="screenshots/dock-grid.webp" width="860" height="600" loading="lazy"
-       alt="The Applications stack open as a grid of app icons above the dock.">
-  <figcaption>Applications as a grid.</figcaption>
-</figure>
+    <h3>Zoom and sharp icons</h3>
+    <ul class="ticks">
+      <li>Icons near the pointer magnify and their neighbours spread apart. On by default.</li>
+      <li>Zoomed or tilted icons are loaded from the icon theme at their on-screen size instead of scaled from 48 px.</li>
+    </ul>
+    <figure>
+      <div class="shot"><img src="screenshots/dock-zoom.webp" width="1060" height="170" loading="lazy"
+        alt="The dock with icons magnified under the pointer."></div>
+    </figure>
+    <div class="term">
+      <div class="bar"><span>Settings</span><button class="copy" type="button" data-copy="zoom">Copy</button></div>
+<pre id="zoom"><span class="p">$ </span>gsettings set io.elementary.dock zoom-size 84
+<span class="p">$ </span>gsettings set io.elementary.dock zoom-enabled false</pre>
+    </div>
+  </div>
+</section>
 
-<h3>Zoom and sharp icons</h3>
-<ul>
-  <li>Icons near the pointer magnify and their neighbours spread apart. On by default.</li>
-  <li>Zoomed or tilted icons are loaded from the icon theme at their on-screen size instead of scaled from 48 px.</li>
-</ul>
-<figure>
-  <img src="screenshots/dock-zoom.webp" width="1060" height="170" loading="lazy"
-       alt="The dock with icons magnified under the pointer.">
-</figure>
-<pre><code>gsettings set io.elementary.dock zoom-size 84
-gsettings set io.elementary.dock zoom-enabled false</code></pre>
+<section id="terminal">
+  <div class="wrap">
+    <div class="head"><h2>Terminal</h2><span class="pkg">io.elementary.terminal-ghostty</span><span class="version" data-pkg="io.elementary.terminal-ghostty"></span></div>
+    <p>elementary Terminal with VTE replaced by <a href="#libghostty-gtk">libghostty-gtk</a>, which uses
+      <a href="https://lib.ghostty.org/">libghostty-vt</a> for parsing and terminal state. Installed as the default terminal.</p>
+    <ul class="ticks">
+      <li>Kitty keyboard protocol, synchronized output, grapheme clustering.</li>
+      <li>OSC 52 clipboard writes (reads are opt-in), including over SSH.</li>
+      <li>Truecolor, styled and coloured underlines, wide characters, OSC 8 hyperlinks.</li>
+      <li>Kept from elementary Terminal: tabs, themes, sudo paste protection, natural copy and paste.</li>
+    </ul>
+    <figure>
+      <div class="shot"><img src="screenshots/terminal.webp" width="1120" height="380" loading="lazy"
+        alt="elementary Terminal showing a truecolor gradient, the palette, styled underlines, CJK text and a hyperlink."></div>
+    </figure>
+  </div>
+</section>
 
-<h2 id="terminal">io.elementary.terminal-ghostty</h2>
-<p>elementary Terminal with VTE replaced by <a href="#libghostty-gtk">libghostty-gtk</a>, which uses
-  <a href="https://lib.ghostty.org/">libghostty-vt</a> for parsing and terminal state. Installed as the default terminal.</p>
-<ul>
-  <li>Kitty keyboard protocol, synchronized output, grapheme clustering.</li>
-  <li>OSC 52 clipboard writes (reads are opt-in), including over SSH.</li>
-  <li>Truecolor, styled and coloured underlines, wide characters, OSC 8 hyperlinks.</li>
-  <li>Kept from elementary Terminal: tabs, themes, sudo paste protection, natural copy and paste.</li>
-</ul>
-<figure>
-  <img src="screenshots/terminal.webp" width="1120" height="380" loading="lazy"
-       alt="elementary Terminal showing a truecolor gradient, the palette, styled underlines, CJK text and a hyperlink.">
-</figure>
+<section id="libghostty-gtk">
+  <div class="wrap">
+    <div class="head"><h2>libghostty-gtk</h2><span class="pkg">libghostty-gtk-1-0</span><span class="pkg">libghostty-gtk-dev</span><span class="version" data-pkg="libghostty-gtk-1-0"></span></div>
+    <p>The GTK 4 terminal widget behind the Terminal package. It implements the subset of VTE's <code>Vte.Terminal</code>
+      API that elementary Terminal uses, under the namespace <code>GhosttyGtk</code>; the Terminal port was about ten lines.</p>
+    <ul class="ticks">
+      <li>Renders with GtkSnapshot; handles its own PTY, keyboard, IME, mouse, paste, selection, search, URL matching and OSC 52.</li>
+      <li>libghostty-vt is linked statically. A VAPI is included for Vala.</li>
+    </ul>
+    <div class="term">
+      <div class="bar"><span>Build against it</span><button class="copy" type="button" data-copy="dev">Copy</button></div>
+<pre id="dev"><span class="p">$ </span>sudo apt install libghostty-gtk-dev
+<span class="p">$ </span>pkg-config --cflags --libs ghostty-gtk-1</pre>
+    </div>
+  </div>
+</section>
 
-<h2 id="libghostty-gtk">libghostty-gtk</h2>
-<p>The GTK 4 terminal widget behind the Terminal package. It implements the subset of VTE's <code>Vte.Terminal</code>
-  API that elementary Terminal uses, under the namespace <code>GhosttyGtk</code>; the Terminal port was about ten lines.</p>
-<ul>
-  <li>Renders with GtkSnapshot; handles its own PTY, keyboard, IME, mouse, paste, selection, search, URL matching and OSC 52.</li>
-  <li>libghostty-vt is linked statically. A VAPI is included for Vala.</li>
-</ul>
-<pre><code>sudo apt install libghostty-gtk-dev
-pkg-config --cflags --libs ghostty-gtk-1</code></pre>
-
-<h2>How it's built</h2>
-<p>Each source repository builds its <code>.deb</code>s in elementary's OS 8 container and publishes them as GitHub
-  Releases. This repository's workflow picks up new releases hourly, signs the index, publishes it here, then installs
-  from it in a clean elementary OS 8 container to check the result.</p>
-
+<section>
+  <div class="wrap">
+    <div class="head"><h2>How it's built</h2></div>
+    <p>Each source repository builds its <code>.deb</code>s in elementary's OS 8 container and publishes them as GitHub
+      Releases. This repository's workflow picks up new releases hourly, signs the index, publishes it here, then installs
+      from it in a clean elementary OS 8 container to check the result.</p>
+  </div>
+</section>
 </main>
 
+<footer>
+  <div class="wrap">
+    <div class="dots" aria-hidden="true">
+      <i style="background:var(--strawberry-500)"></i><i style="background:var(--orange-500)"></i><i style="background:var(--banana-500)"></i><i style="background:var(--lime-500)"></i><i style="background:var(--mint-500)"></i><i style="background:var(--blueberry-500)"></i><i style="background:var(--grape-500)"></i>
+    </div>
+    <a href="https://github.com/arsfeld/pantheon-apt">arsfeld/pantheon-apt</a>
+  </div>
+</footer>
+
 <script>
+  // Copy buttons copy the commands without their "$ " prompts or comments.
+  document.querySelectorAll(".copy").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var pre = document.getElementById(button.dataset.copy);
+      var text = Array.from(pre.childNodes).filter(function (n) {
+        return !(n.nodeType === 1 && (n.classList.contains("p") || n.classList.contains("c")));
+      }).map(function (n) { return n.textContent; }).join("").replace(/[ \t]+$/gm, "");
+      navigator.clipboard.writeText(text.trim() + "\n").then(function () {
+        button.textContent = "Copied";
+        setTimeout(function () { button.textContent = "Copy"; }, 1500);
+      }, function () {});
+    });
+  });
+
   // Each package's current version, read from this repository's own index. The
   // pool keeps three versions of each; the build timestamp in the version sorts as text.
   fetch("dists/noble/main/binary-amd64/Packages").then(function (r) {
