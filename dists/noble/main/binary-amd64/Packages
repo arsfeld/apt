@@ -1,3 +1,29 @@
+Package: io.elementary.dock-extras
+Architecture: amd64
+Version: 8.3.3+extras.git20261113052312.77fbb733
+Priority: optional
+Section: x11
+Maintainer: Alexandre Rosenfeld <alex@rosenfeld.one>
+Installed-Size: 1173
+Provides: io.elementary.dock
+Depends: gala (>= 8.3.0), dconf-gsettings-backend | gsettings-backend, libadwaita-1-0 (>= 1.2~alpha), libc6 (>= 2.34), libcairo2 (>= 1.10.0), libglib2.0-0t64 (>= 2.79.0), libgranite7 (>= 7.8.0), libgraphene-1.0-0 (>= 1.5.4), libgtk-4-1 (>= 4.13.5), libwayland-client0 (>= 1.20.0), libx11-6
+Recommends: switcheroo-control
+Conflicts: io.elementary.dock
+Replaces: io.elementary.dock
+Filename: pool/main/elementary-dock/io.elementary.dock-extras_8.3.3+extras.git20261113052312.77fbb733_amd64.deb
+Size: 198570
+MD5sum: b9e4655165b1215c024f0cb916321961
+SHA1: 5859d8dd7dd5c4bf57954443d8211494c9f841d0
+SHA256: a6ee38413bc9a9396d55df5e12a4f2d7bbe675d272d17ed7ea9a82acc04b2b3e
+SHA512: 0da38f4e11c8645b915f6fd4c43e12ac7b56e07b65aef72d997abc4a19bef2b502362edce36124aee8fcdcb4ba0316fbbb8fef2e760585822a8691978c4a267d
+Homepage: https://github.com/arsfeld/elementary-dock
+Description: elementary's dock with folder stacks and zoom
+ elementary's dock with three additions: macOS-style folder stacks
+ (Downloads fanned out newest first, Applications as a grid), magnification
+ under the pointer, and icons that stay sharp while zoomed or tilted.
+ .
+ It replaces io.elementary.dock, and satisfies what depends on it.
+
 Package: io.elementary.terminal-ghostty
 Architecture: amd64
 Version: 8.1.0+ghostty.git20261107154426.854ef145
