@@ -1,28 +1,28 @@
 Architectures: amd64
 Codename: noble
 Components: main
-Date: Fri, 13 Nov 2026 09:32:26 +0000
+Date: Fri, 13 Nov 2026 12:12:25 +0000
 Description: elementary Terminal on libghostty-gtk and the elementary dock with extras, for elementary OS 8
 Label: pantheon-apt
 Origin: arsfeld
 Suite: noble
 MD5Sum:
- d2152612d0ef788ee58186135401761c             2019 Release
+ 5b3b3f0d37288293049611cf7052444f             2019 Release
  91da9d88de1e53759c063e804779312d            15729 main/binary-amd64/Packages
  82c69b6f59b160495c3c3989a9b9427c             3562 main/binary-amd64/Packages.gz
  4e2a884118f95892bb7d3abcb8bacfea             3324 main/binary-amd64/Packages.xz
 SHA1:
- d29d7acec533a14bd970608445772a87deae522e             2019 Release
+ 6f7e1547fe122af75af9c03bdad19639f14579d7             2019 Release
  4a746eec21a3fc7f717f3b04edc58d069368497d            15729 main/binary-amd64/Packages
  2fce2e62e58263f7c207ee4c8af870410a9fc21e             3562 main/binary-amd64/Packages.gz
  5c933c510d11aa86c8ed58d584daf127e919719d             3324 main/binary-amd64/Packages.xz
 SHA256:
- 16a977a6a2ea7ac7c9b0de27067c58e223fee6adc7f810a532e8d8406cfbaf05             2019 Release
+ 0900101145443a6a4969441ae062856b3643f6cfe7d2b88efb8caaf7a5dc3bd6             2019 Release
  a459570d67f86de0de9d5b12ab532c0ec0f992937c4a7238fc75798ac074d1ea            15729 main/binary-amd64/Packages
  54cae22954795a823922a5c8417781d5a776b8220277e8bfa7b5bf4c6e4eda6d             3562 main/binary-amd64/Packages.gz
  8124ecdc1e44280d168e8fadf1d77028d41932875c839d6da9e64d025cdc1501             3324 main/binary-amd64/Packages.xz
 SHA512:
- 3a70deccd783c0e88d785ff72ba869beda83ff4588810e6d93d7d0ddcbb0b28f1a7d83aa5420d1fcf3df3793a83b4a7cc049fbf9b49bf0ee6a1d9cdf8622eb9e             2019 Release
+ 3af24e248cbc5909491c016e642d6d64d4102036d308a1fea0a9108b4b32aa08ce7cb9f4853cfe45e59fc6cfc24f0bf8afb2cc7bfbe5bceb2084dd89a6f808df             2019 Release
  979891bb464d6797857f94aaca81d535168fad69da923f4c45da9e69a41e4de668331cf54af052ad2305b8c161a2343e5b23e49bedfd1d1a98b54646b10a404f            15729 main/binary-amd64/Packages
  ee5a34c0a2a23e5b6ff011fc13f8ed878feb1b78b532c70117fd6100d4c474e1aceda38e5b29fd54e7c50a2888ee64e21a54d127eb3dcd6ddbd3eed5e2511998             3562 main/binary-amd64/Packages.gz
  8f39cafbfc298382a80d50ef61cbf5866267cd65cbbb10f2791bd9e3b947f4af007330946c977db1d38bf01e7b13533401474d8713b2062a168e9380d782663e             3324 main/binary-amd64/Packages.xz
