@@ -49,3 +49,7 @@ from the repo's `Packages` index, so it needs no edit for a new build.
 Screenshots in `site/screenshots/` come from a private headless Gala with the
 packaged dock and Terminal, using the dock's `DOCK_ZOOM_AT` and
 `DOCK_STACKS_OPEN` test hooks. The tiling section has none yet.
+Run the dock there with `GDK_DEBUG=no-portals`: otherwise GTK takes the icon
+theme from the settings portal, which answers Adwaita, not the session's
+`elementary`, and Terminal's `utilities-terminal` falls back to a white
+symbolic outline.
