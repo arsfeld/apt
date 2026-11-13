@@ -203,13 +203,12 @@
 <main>
   <section class="hero" style="padding-bottom:0">
     <div class="wrap">
-      <span class="eyebrow">For elementary OS 8</span>
-      <h1>Pantheon, <strong>with extras.</strong></h1>
-      <p class="lead">A signed apt repository with elementary's dock grown folder stacks and zoom, and elementary
-        Terminal running on Ghostty's terminal engine. Same apps, same look, more under the hood.</p>
+      <h1>pantheon-apt</h1>
+      <p class="lead">A signed apt repository for elementary OS 8 with two packages: elementary's dock with folder
+        stacks and zoom, and elementary Terminal on libghostty-vt.</p>
       <div class="actions">
-        <a class="button suggested" href="#install">Add the repository</a>
-        <a class="button flat" href="https://github.com/arsfeld/pantheon-apt">View on GitHub</a>
+        <a class="button suggested" href="#install">Install</a>
+        <a class="button flat" href="https://github.com/arsfeld/pantheon-apt">Source</a>
       </div>
       <div class="screen">
         <img src="screenshots/desktop.webp" width="1920" height="1080"
@@ -222,16 +221,16 @@
     <div class="wrap">
       <div class="section-head">
         <div class="package-head"><span class="pkg">io.elementary.dock-extras</span><span class="version" data-pkg="io.elementary.dock-extras"></span></div>
-        <h2>The dock, with extras</h2>
+        <h2>Dock</h2>
         <p>elementary's Dock, with folder stacks, zoom, and icons that stay sharp at any size.
-          It replaces <code>io.elementary.dock</code> and keeps everything it does.</p>
+          It replaces <code>io.elementary.dock</code>.</p>
       </div>
 
       <div class="features">
         <div class="feature wide">
           <div class="text">
             <h3>Folder stacks</h3>
-            <p>Put a folder after the launchers and it opens as a fan, the way a stack does on a Mac.
+            <p>Put a folder after the launchers and it opens as a fan.
               Downloads shows newest first, nearest the dock, and partial downloads show their progress.</p>
             <ul class="ticks">
               <li>Drag a folder from Files onto the dock to add it</li>
@@ -247,7 +246,7 @@
 
         <div class="feature wide flip">
           <div class="text">
-            <h3>Every app, one click away</h3>
+            <h3>Applications grid</h3>
             <p>The Applications stack opens as a grid of everything installed, sorted by name, with
               your app folders, Games, System and the rest, as folders.</p>
             <p>Any folder can open as a grid too, and any stack as a fan: the view and the sort are set per stack.</p>
@@ -288,10 +287,9 @@ gsettings set io.elementary.dock zoom-enabled false</code></pre>
     <div class="wrap">
       <div class="section-head">
         <div class="package-head"><span class="pkg">io.elementary.terminal-ghostty</span><span class="version" data-pkg="io.elementary.terminal-ghostty"></span></div>
-        <h2>Terminal, on Ghostty's engine</h2>
+        <h2>Terminal</h2>
         <p>elementary Terminal with VTE replaced by <a href="https://github.com/arsfeld/libghostty-gtk">libghostty-gtk</a>,
-          a GTK 4 widget on <a href="https://lib.ghostty.org/">libghostty-vt</a>. The app, its tabs and its look are
-          elementary's; the engine underneath is Ghostty's.</p>
+          a GTK 4 widget on <a href="https://lib.ghostty.org/">libghostty-vt</a>.</p>
       </div>
 
       <figure>
@@ -302,17 +300,16 @@ gsettings set io.elementary.dock zoom-enabled false</code></pre>
 
       <div class="cards" style="margin-top:48px">
         <div class="card">
-          <h3>The clipboard, from anywhere</h3>
-          <p>OSC 52 clipboard writes, and opt-in reads, so Neovim, zellij and Claude Code can set the clipboard,
-            over SSH too.</p>
+          <h3>OSC 52 clipboard</h3>
+          <p>OSC 52 clipboard writes, and opt-in reads. Works over SSH.</p>
         </div>
         <div class="card">
-          <h3>Modern VT handling</h3>
+          <h3>VT support</h3>
           <p>Ghostty's parser and terminal state: the kitty keyboard protocol, synchronized output and grapheme
             clustering.</p>
         </div>
         <div class="card">
-          <h3>Still elementary Terminal</h3>
+          <h3>Unchanged from elementary Terminal</h3>
           <p>Tabs, sudo paste protection, natural copy and paste, and its themes. It replaces
             <code>io.elementary.terminal</code> and is the default terminal.</p>
         </div>
@@ -326,10 +323,10 @@ gsettings set io.elementary.dock zoom-enabled false</code></pre>
         <div class="package-head">
           <span class="pkg">libghostty-gtk-1-0</span><span class="pkg">libghostty-gtk-dev</span><span class="version" data-pkg="libghostty-gtk-1-0"></span>
         </div>
-        <h2>For your own app: libghostty-gtk</h2>
+        <h2>libghostty-gtk</h2>
         <p>The widget behind Terminal, as a library. It carries the part of VTE's <code>Vte.Terminal</code> API that
           elementary Terminal uses, under the namespace <code>GhosttyGtk</code>, so porting an app off VTE is mostly a
-          rename: Terminal's port is about ten lines.</p>
+          rename. Porting Terminal took about ten lines.</p>
       </div>
       <div class="cards">
         <div class="card">
@@ -369,7 +366,7 @@ pkg-config --cflags --libs ghostty-gtk-1</code></pre>
         </div>
         <div class="step">
           <div>
-            <h3>Install what you want</h3>
+            <h3>Install packages</h3>
             <p>Each replaces elementary's package for the same app. The dock starts at your next login.</p>
             <div class="term">
               <div class="bar"><span>Terminal</span><button class="copy" type="button" data-copy="pkgs">Copy</button></div>
@@ -380,7 +377,7 @@ pkg-config --cflags --libs ghostty-gtk-1</code></pre>
         </div>
         <div class="step">
           <div>
-            <h3>Changed your mind?</h3>
+            <h3>Revert</h3>
             <p>Installing elementary's packages puts them back and removes these.</p>
             <div class="term">
               <div class="bar"><span>Terminal</span><button class="copy" type="button" data-copy="back">Copy</button></div>
