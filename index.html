@@ -95,7 +95,6 @@
 
   /* Hero */
   .hero { text-align: center; padding: 72px 0 0; overflow: hidden; }
-  .eyebrow { display: inline-block; font-size: .85rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
   .hero p.lead { font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--muted); max-width: 40rem; margin: 22px auto 0; }
   .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 32px 0 56px; }
   .hero .screen { max-width: 1040px; margin: 0 auto; border-radius: 10px 10px 0 0; overflow: hidden; box-shadow: var(--window-shadow); }
@@ -128,13 +127,6 @@
   .shot { border-radius: 10px; overflow: hidden; box-shadow: var(--window-shadow); background: #000; }
   figure { margin: 0; }
   figcaption { font-size: .85rem; color: var(--muted); margin-top: 14px; text-align: center; }
-
-  ul.ticks { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 8px; }
-  ul.ticks li { padding-left: 28px; position: relative; }
-  ul.ticks li::before {
-    content: ""; position: absolute; left: 0; top: .32em; width: 18px; height: 18px; border-radius: 50%;
-    background: var(--lime-500) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat;
-  }
 
   /* Cards */
   .cards { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
@@ -173,8 +165,6 @@
 
   footer { padding: 48px 0 64px; color: var(--muted); font-size: .9rem; text-align: center; }
   footer p + p { margin-top: 6px; }
-  .dots { display: flex; gap: 6px; justify-content: center; margin-bottom: 20px; }
-  .dots i { width: 8px; height: 8px; border-radius: 50%; }
 </style>
 </head>
 <body>
@@ -205,7 +195,7 @@
   <section class="hero" style="padding-bottom:0">
     <div class="wrap">
       <h1>pantheon-extras</h1>
-      <p class="lead">A personal apt repository of useful additions to Pantheon, for elementary OS 8.</p>
+      <p class="lead">A personal apt repository of Pantheon additions for elementary OS 8.</p>
       <div class="actions">
         <a class="button suggested" href="#install">Install</a>
         <a class="button flat" href="https://github.com/arsfeld/pantheon-extras">Source</a>
@@ -229,8 +219,8 @@
         <div class="feature wide">
           <div class="text">
             <h3>Folder stacks</h3>
-            <p>Drag a folder from Files onto the dock and it opens as a fan, newest file nearest the dock.
-              Right-click a stack to change its view or sort, or to remove it.</p>
+            <p>Drag a folder from Files onto the dock to add it as a stack. It opens as a fan, newest file
+              nearest the dock. Right-click it to change the view or sort order, or to remove it.</p>
           </div>
           <figure>
             <div class="shot"><img src="screenshots/dock-fan.webp" width="760" height="560" loading="lazy"
@@ -241,8 +231,8 @@
         <div class="feature wide flip">
           <div class="text">
             <h3>Applications grid</h3>
-            <p>The Applications stack shows installed apps as a grid, with app folders as folders. Any stack can
-              be a grid or a fan.</p>
+            <p>The Applications stack shows installed apps and app folders as a grid. Any stack can be a grid
+              or a fan.</p>
           </div>
           <figure>
             <div class="shot"><img src="screenshots/dock-grid.webp" width="860" height="600" loading="lazy"
@@ -258,7 +248,7 @@
           <div class="cards">
             <div class="card">
               <h3>Zoom</h3>
-              <p>Icons near the pointer grow, drawn from the icon theme at the zoomed size. On by default.</p>
+              <p>Icons near the pointer grow, redrawn from the icon theme at the larger size. On by default.</p>
               <pre><code>gsettings set io.elementary.dock zoom-size 84
 gsettings set io.elementary.dock zoom-enabled false</code></pre>
             </div>
@@ -274,7 +264,7 @@ gsettings set io.elementary.dock zoom-enabled false</code></pre>
         <div class="package-head"><span class="pkg">pantheon-paper</span><span class="version" data-pkg="pantheon-paper"></span></div>
         <h2>Tiling</h2>
         <p>A Gala plugin for PaperWM-style tiling. Each workspace on the primary monitor is a horizontal strip
-          of columns that scrolls to follow focus.</p>
+          of columns that scrolls to the focused window.</p>
       </div>
       <div class="cards">
         <div class="card">
@@ -294,8 +284,8 @@ Super+Shift+F       float</code></pre>
         </div>
         <div class="card">
           <h3>What it changes</h3>
-          <p>Workspace switching moves to <code>Ctrl+Super+←/→</code>. Half-screen and edge tiling are off, and
-            move-to-monitor is unbound. Keys you have set yourself are kept.</p>
+          <p>Workspace switching moves to <code>Ctrl+Super+←/→</code>. Half-screen and edge tiling are turned
+            off and move-to-monitor is unbound. Keys you have set yourself are left alone.</p>
         </div>
       </div>
     </div>
@@ -308,13 +298,13 @@ Super+Shift+F       float</code></pre>
         <h2>Terminal</h2>
         <p>elementary Terminal with VTE swapped for <a href="https://github.com/arsfeld/libghostty-gtk">libghostty-gtk</a>,
           a GTK 4 widget on <a href="https://lib.ghostty.org/">libghostty-vt</a>. Replaces
-          <code>io.elementary.terminal</code>; tabs, themes and paste protection are unchanged.</p>
+          <code>io.elementary.terminal</code>. Tabs, themes and paste protection work as before.</p>
       </div>
 
       <figure>
         <div class="shot"><img src="screenshots/terminal.webp" width="1120" height="380" loading="lazy"
           alt="elementary Terminal with two tabs, showing a truecolor gradient, the palette, bold, italic, curly and double underlines, accented and CJK text, and a hyperlink."></div>
-        <figcaption>Truecolor, styled underlines, wide characters, OSC 8 links and OSC 52 clipboard, plus the kitty
+        <figcaption>Supports truecolor, styled underlines, wide characters, OSC 8 links, OSC 52 clipboard, the kitty
           keyboard protocol and synchronized output.</figcaption>
       </figure>
     </div>
@@ -327,7 +317,7 @@ Super+Shift+F       float</code></pre>
           <span class="pkg">libghostty-gtk-1-0</span><span class="pkg">libghostty-gtk-dev</span><span class="version" data-pkg="libghostty-gtk-1-0"></span>
         </div>
         <h2>libghostty-gtk</h2>
-        <p>The terminal widget Terminal uses. It implements the subset of <code>Vte.Terminal</code> that elementary
+        <p>The terminal widget behind Terminal. It implements the part of <code>Vte.Terminal</code> that elementary
           Terminal needs, under <code>GhosttyGtk</code>. libghostty-vt is linked statically; a VAPI is included.</p>
       </div>
       <div class="cards">
@@ -343,13 +333,13 @@ pkg-config --cflags --libs ghostty-gtk-1</code></pre>
     <div class="wrap">
       <div class="section-head">
         <h2>Install</h2>
-        <p>On elementary OS 8 (noble, amd64). Install any of the packages.</p>
+        <p>elementary OS 8 (noble, amd64) only.</p>
       </div>
       <div class="steps">
         <div class="step">
           <div>
             <h3>Add the repository</h3>
-            <p><code>signed-by</code> limits the key to this repository.</p>
+            <p><code>signed-by</code> makes apt trust this key for this repository only.</p>
             <div class="term">
               <div class="bar"><span>Terminal</span><button class="copy" type="button" data-copy="add">Copy</button></div>
 <pre id="add"><span class="p">$ </span>sudo curl -fsSLo /usr/share/keyrings/pantheon-extras.gpg https://arsfeld.github.io/pantheon-extras/pantheon-extras.gpg
@@ -374,7 +364,7 @@ pkg-config --cflags --libs ghostty-gtk-1</code></pre>
         <div class="step">
           <div>
             <h3>Revert</h3>
-            <p>Reinstalling elementary's packages replaces these. Removing pantheon-paper restores Pantheon's keys.</p>
+            <p>Installing elementary's packages again replaces these. Removing pantheon-paper puts Pantheon's keys back.</p>
             <div class="term">
               <div class="bar"><span>Terminal</span><button class="copy" type="button" data-copy="back">Copy</button></div>
 <pre id="back"><span class="p">$ </span>sudo apt install io.elementary.dock io.elementary.terminal
@@ -393,7 +383,7 @@ pkg-config --cflags --libs ghostty-gtk-1</code></pre>
         </div>
         <div class="card">
           <h3>Where it comes from</h3>
-          <p>Built in elementary's OS 8 container by each project's CI
+          <p>Built by each project's CI in elementary's OS 8 container
             (<a href="https://github.com/arsfeld/elementary-dock">elementary-dock</a>,
             <a href="https://github.com/arsfeld/pantheon-paper">pantheon-paper</a>,
             <a href="https://github.com/arsfeld/elementary-terminal">elementary-terminal</a>,
@@ -407,9 +397,6 @@ pkg-config --cflags --libs ghostty-gtk-1</code></pre>
 
 <footer>
   <div class="wrap">
-    <div class="dots" aria-hidden="true">
-      <i style="background:var(--strawberry-500)"></i><i style="background:var(--orange-500)"></i><i style="background:var(--banana-500)"></i><i style="background:var(--lime-500)"></i><i style="background:var(--mint-500)"></i><i style="background:var(--blueberry-500)"></i><i style="background:var(--grape-500)"></i>
-    </div>
     <p>Experimental, and not affiliated with elementary or Ghostty.</p>
     <p>Source: <a href="https://github.com/arsfeld/pantheon-extras">arsfeld/pantheon-extras</a></p>
   </div>
