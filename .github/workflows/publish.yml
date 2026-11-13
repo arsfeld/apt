@@ -65,7 +65,7 @@ jobs:
         run: |
           apt-get update -qq && apt-get install -y -qq curl ca-certificates >/dev/null
           for i in $(seq 60); do
-            got=$(curl -fsSL "https://arsfeld.github.io/apt/dists/noble/InRelease?$i" | sha256sum | cut -d' ' -f1) || true
+            got=$(curl -fsSL "https://arsfeld.github.io/pantheon-apt/dists/noble/InRelease?$i" | sha256sum | cut -d' ' -f1) || true
             [ "$got" = "$WANT" ] && exit 0
             sleep 10
           done
@@ -74,9 +74,9 @@ jobs:
       - name: Install from the repo, as the README says
         run: |
           export DEBIAN_FRONTEND=noninteractive
-          curl -fsSLo /usr/share/keyrings/arsfeld.gpg https://arsfeld.github.io/apt/arsfeld.gpg
-          echo "deb [signed-by=/usr/share/keyrings/arsfeld.gpg] https://arsfeld.github.io/apt noble main" \
-            > /etc/apt/sources.list.d/arsfeld.list
+          curl -fsSLo /usr/share/keyrings/pantheon-apt.gpg https://arsfeld.github.io/pantheon-apt/pantheon-apt.gpg
+          echo "deb [signed-by=/usr/share/keyrings/pantheon-apt.gpg] https://arsfeld.github.io/pantheon-apt noble main" \
+            > /etc/apt/sources.list.d/pantheon-apt.list
           apt-get update --error-on=any
           apt-get install -y io.elementary.terminal
           apt-get install -y io.elementary.terminal-ghostty
