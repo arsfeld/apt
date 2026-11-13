@@ -4,44 +4,44 @@ Hash: SHA512
 Architectures: amd64
 Codename: noble
 Components: main
-Date: Fri, 13 Nov 2026 15:49:04 +0000
+Date: Fri, 13 Nov 2026 16:07:20 +0000
 Description: The elementary dock with extras, PaperWM-style tiling and elementary Terminal on libghostty-gtk, for elementary OS 8
 Label: pantheon-extras
 Origin: arsfeld
 Suite: noble
 MD5Sum:
- 387179a8d6fd59fd7697fce3f41c2b7d             2044 Release
+ 45198438060db39de522b9d3b1394d9a             2044 Release
  2d31d13ae1f065b8591fd774f21a17b1            17281 main/binary-amd64/Packages
  b9c7bc334f6eed383b4b56ba512429d0             4236 main/binary-amd64/Packages.gz
  e1fb37960595b158c41195e374c3c459             3956 main/binary-amd64/Packages.xz
 SHA1:
- f6c14c3301036d1d4996939cbd292bb0ced1b3b7             2044 Release
+ ff60d5fdb99af9660ccc61938fc821511ad90240             2044 Release
  5d3597a36db08a7650708721e693fdfe0a00e549            17281 main/binary-amd64/Packages
  c7961789fbcbc0d79f11c5454f7c240dfebd56e8             4236 main/binary-amd64/Packages.gz
  5f03e0f11728696fdea223d5007ac90bbecf54ae             3956 main/binary-amd64/Packages.xz
 SHA256:
- 693694651ac3be370ecab402aa78ab1749252d21b91f5dd6483c5aebebfddfe7             2044 Release
+ d6c8334b6c3d9cd1e61f9ef575b6a2de4071932ea0d18588ac36bb7d0d48e74c             2044 Release
  f40efb402b9fd63a9a4b1a4e152d4179595487bf0a968b358fe6501f95154a12            17281 main/binary-amd64/Packages
  8bbf0c555e0b033d9178352f450d3ac309837370f6487f0ab3fe40afda860fc3             4236 main/binary-amd64/Packages.gz
  7e8bdf766a915f110e590185814356428d5637e3889dcb1d074dddd8199e810d             3956 main/binary-amd64/Packages.xz
 SHA512:
- 757f63ac656421dfee4b57a2a54cb0712b9e4060c90e436a57902757e30c6cc29eb1e23d7016297bf28d08aaf82a63b45c58a6e836c37686b9be6d05ba8a3b8b             2044 Release
+ 27880425385395f1783107bd46254fead798892b58b3f4df018504a14f9e89f1160e3ceed01b14cabea97a5d6805703be08e56959b43abe14a205fd04d60fcc7             2044 Release
  095f0119a5e23df6c89bbadb6c1b8409561a20cbc85cf6f59d13b75ff855d0ad8b491bca3c2a106137599344d3592e146f2d9eb6589250a6b0050fb0fcac504e            17281 main/binary-amd64/Packages
  8c38abb5c4725b5934e5947e3d456a707a64b0064f3f2c83b7f0c6605d6896ebec6b67aa85feca9c7d43f76ad7d6ab054a32ad3e861540e88f43746380f1f65f             4236 main/binary-amd64/Packages.gz
  bb57b316bfb60b1ad43ba193579c6bbd7bf1fad4dea2f2e35918ebdf4bd55a69f54677d7e83066269d285ce0c705c3829d824a12e72c79c070aef2689c4043b1             3956 main/binary-amd64/Packages.xz
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEETRAcQgWV3GB59OV3DVw0eT9PBqcFAmr3MXAACgkQDVw0eT9P
-BqeU+hAAkE2KvSfxRv0Klzj1kqpjJXUQf/ycZO96YoJWU22hwVzVL2cyOsLGLS/s
-Sz1FLn77h0SQ7FMQQCCxwajBPN4F4Qo88hvpVpe6N/bmiQLP7/DRRJ5p5dZyTrJN
-FAwwIPTMJ6ZJTLg8WpQl8Xg9OkVUgeotajMNzOZmQv04+MMDH4V9Ot+II3kt/mA0
-WxriBFHLvUGGbS099qGMVzfq1gitsGEfsxkQzAKa5dx3iw7ZRWjeOgWzBgYY3zMm
-LyJ0Szxhbz9+K9c6c8snhJ37BoNu2w4ugeEv1R8ZuXMu4k0QeDV5RUBUW+NivI8i
-Cgh9CvAROKhRe3LRMWcTrvt7N5XnwZT3kihaZ+2zDLVOKD4sI29UJkR31GmH0m9q
-JlrhRvlBQLRHq9bfWgdgVL3qa2AtOxzJulOR/Iyh3Sh4SLnQmFv4hiDw9RmOP/DB
-L10BimdiEmSdApsuchezfSZ4IVaxyRRm4YBq+dssQQDBEGJJRfxqeTE4VM4vwIbc
-hHq2vqlXvN1lzhGBciy/i9Vlx1krSrnMWFjeo+8olMwCdE5uoOZbWnOOsJ9vEIq/
-tFRugmKjsVlOXAc/z1VQS3hfvMv8Nj89kJ2GVnCXhbo666Xn3UkfRe6O++F9FyB8
-bzAXTNnERNIsLsk8o9nfW7iA7FZQl0umC9zRwm3QyC3ujv6t56A=
-=ki2n
+iQIzBAEBCgAdFiEETRAcQgWV3GB59OV3DVw0eT9PBqcFAmr3NbgACgkQDVw0eT9P
+Bqf5nBAAjRWCOIHK0O1OvXTMxZzY60P19kL6LwkaliNoHahpBm/ZQxB3RWIhqkGg
+WXaap/tCbuYgJCxfqadNsJAlxB71/TnU+lcQ2eKUGvgrEaCrx4Bk2UVbNj6Bt3PL
+iYc+aqrGi18C5HJEoZ+cMoc/P9ni79lL8aU6ngV8RWJIG22flqcMy5KII4DY/9FD
+Zdk7bi/1l8wtE2mVdX+z9EAJZT9J/Ieib/+1Pwfw4A2GuTzodLBjQi6/31jL4suG
+J2FW5eCgkbg+04TNnzjNP5jDLxUt2n28Mdc9jRZLgx3ZD+QAegInO/OmUAUCFI7z
+Oo4ZmA8lTx9JHPr9kFykVYIvElZ+r/lwlwXBHnqXsxMNXcP/2r0w8Vd1pEz6xO6G
+KOdKqc0/PY7A+tlIeY1M6qQFQeiI58rOS2VdvIZiSEwcNbh8kdnMPhxCb3wh9kVO
+J6MVoyKYVbBOq1PwwcawxYF+1osTvOwZNKLDSivG0qhre2q0iOYdVjOmoCMxJWQN
+t/CvFYk7d6vNguPTqMkLxpAQOXTYnImswD4JVmFwh/4VdufVUSgAlWnyaMVPLYJm
+s8vK+uhahadWJWMkoTvq15t3bMiTnHhdf5CKqKtHSxs0TQ4XHKc99P0NFuZu2wWv
+SvdTT6LEeH3ko3CZaOpnfYuUsgvAdIqXlFPWUnDuR4cx7/UIj30=
+=OxxL
 -----END PGP SIGNATURE-----
